@@ -26,4 +26,9 @@ public class Const {
 	public static final String OPTION_SUCCESS = "success";
 	public static final String OPTION_FAILED = "failed";
 	
+	public static final String USER_TYPE_STUDENT = "1";
+	public static final String USER_TYPE_TEACHER = "2";
+	public static final String USER_TYPE_MANAGER = "3";
+	public static final String USER_TYPE_SYSTEM = "4";
+	
 }

@@ -7,6 +7,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.demo.interfaces.ControllerInterface;
 import com.demo.models.UserModel;
 import com.demo.utils.Const;
+import com.demo.utils.CrossOrigin;
 import com.demo.utils.Log;
 import com.demo.utils.PageJson;
 import com.demo.utils.ParamUtil;
@@ -17,6 +18,7 @@ import com.jfinal.kit.JsonKit;
 import com.jfinal.plugin.activerecord.Model;
 import com.jfinal.plugin.activerecord.Page;
 
+@CrossOrigin
 public abstract class DefaultController<T extends Model> extends Controller {
 
 	public ControllerInterface controllerInterface;
@@ -111,7 +113,7 @@ public abstract class DefaultController<T extends Model> extends Controller {
 		}
 	}
 	
-	//���½ӿ�
+	//锟斤拷锟铰接匡拷
 	public void updateEntity(){
 		setData();
 		try {
@@ -129,7 +131,7 @@ public abstract class DefaultController<T extends Model> extends Controller {
 		}
 	}
 	
-	//��ʾ�б�
+	//锟斤拷示锟叫憋拷
 	public void showHtmlList() {
 		setData();
 		Log.i("htmlKey:"+htmlKey);
@@ -137,7 +139,7 @@ public abstract class DefaultController<T extends Model> extends Controller {
 		render("list.html");
 	}
 	
-	//��ʾ���ҳ
+	//锟斤拷示锟斤拷锟揭�
 	public void showHtmlAdd() {
 		setData();
 		Log.i("htmlKey:"+htmlKey);
@@ -145,7 +147,7 @@ public abstract class DefaultController<T extends Model> extends Controller {
 		render("add.html");
 	}
 	
-	//��ʾ�޸�ҳ
+	//锟斤拷示锟睫革拷页
 	public void showHtmlModify() {
 		setData();
 		Log.i("htmlKey:"+htmlKey);

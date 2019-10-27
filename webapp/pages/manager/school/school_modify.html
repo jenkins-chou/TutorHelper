@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 2 | General Form Elements</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="/bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="/dist/css/skins/_all-skins.min.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+  <link rel="stylesheet" href="/dist/toastr/toastr.css">
+
+    <!-- bootstrap datepicker -->
+  <link rel="stylesheet" href="/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+
+  
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+  <div class="col-md-3"></div>
+  <div class="col-md-6" style="margin-top: 10px">
+          <!-- general form elements -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              
+              <h3 class="box-title"><span class="label label-primary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">添加/修改</font></font></span></h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form">
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">
+                    <font style="vertical-align: inherit;">
+                      <font style="vertical-align: inherit;">
+                      学校名称
+                    </font>
+                  </font>
+                </label>
+                <input id="school_name" type="email" class="form-control" id="exampleInputEmail1" placeholder="请输入">
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputEmail1">
+                    <font style="vertical-align: inherit;">
+                      <font style="vertical-align: inherit;">
+                      描述
+                    </font>
+                  </font>
+                </label>
+                <input id="school_describe" type="email" class="form-control" id="exampleInputEmail1" placeholder="请输入">
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputEmail1">
+                    <font style="vertical-align: inherit;">
+                      <font style="vertical-align: inherit;">
+                      校址
+                    </font>
+                  </font>
+                </label>
+                <input id="school_address" type="email" class="form-control" id="exampleInputEmail1" placeholder="请输入">
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputEmail1">
+                    <font style="vertical-align: inherit;">
+                      <font style="vertical-align: inherit;">
+                      校训
+                    </font>
+                  </font>
+                </label>
+                <input id="school_slogan" type="email" class="form-control" id="exampleInputEmail1" placeholder="请输入">
+                </div>
+
+                <div class="form-group">
+                  <label>注册时间:</label>
+
+                  <div class="input-group date">
+                    <div class="input-group-addon">
+                      <i class="fa fa-calendar"></i>
+                    </div>
+                    <input id="school_regis_time" type="text" class="form-control pull-right">
+                  </div>
+                  <!-- /.input group -->
+                </div>
+              </div>
+
+              
+              <!-- /.box-body -->
+            </form>
+            <div class="box-footer">
+                <button type="submit" class="btn btn-primary col-md-2 margin" onclick="submit()"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">提交</font></font></button>
+                <button type="submit" class="btn btn-danger margin" onclick="goBack()" ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">取消</font></font></button>
+              </div>
+          </div>
+          <!-- /.box -->
+          </div>
+          <!-- /.box -->
+  </div>
+  <div class="col-md-3"></div>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 3 -->
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="/bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/dist/js/demo.js"></script>
+
+<!-- bootstrap datepicker -->
+<script src="/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
+<script type="text/javascript" src="/pages/base/base.js"></script>
+<script type="text/javascript" src="/dist/toastr/toastr.js"></script>
+
+<script type="text/javascript">
+
+  $(function(){
+    $('#school_regis_time').datepicker({
+      autoclose: true
+    })
+
+    var id = getQueryVariable("id");
+    if (id !=false) {
+      getModifyInfo(id);
+    }
+
+  });
+
+  var getModifyInfo = function(id){
+    $.ajax({
+      type: "post",
+      dataType: "json",
+      url: server_url+URI_GET_SCHOOL_INFO,
+      data: {id:id},
+      success: function (data) {       //data回调信息
+        console.log(data);
+      if (data != "" && data.code == 200) {
+        //stopLoading();
+        //toastr.success("操作成功","温馨提示");
+        $("#school_name").val(data.data.school_name);
+        $("#school_describe").val(data.data.school_describe);
+        $("#school_address").val(data.data.school_address);
+        $("#school_slogan").val(data.data.school_slogan);
+        $("#school_regis_time").val(data.data.school_regis_time);
+      }else{
+        //toastr.error("操作失败","温馨提示");
+      }
+      },
+      complete:function(){
+        //console.log('complete');
+        //stopLoading();
+      }
+    });
+  }
+
+
+
+  var add = function(){
+    $.ajax({
+      type: "post",
+      dataType: "json",
+      url: server_url+URI_ADD_SCHOOL,
+      data: getInput(),
+      success: function (data) {       //data回调信息
+      if (data != "" && data.code == 200) {
+        //stopLoading();
+        toastr.success("操作成功","温馨提示");
+      }else{
+        toastr.error("操作失败","温馨提示");
+      }
+      },
+      complete:function(){
+        //console.log('complete');
+        //stopLoading();
+      }
+    });
+  }
+
+  var update = function(){
+    var id = getQueryVariable("id");
+    var params = getInput();
+    params.id = id;
+    $.ajax({
+      type: "post",
+      dataType: "json",
+      url: server_url+URI_UPDATE_SCHOOL,
+      data:params ,
+      success: function (data) {       //data回调信息
+      if (data != "" && data.code == 200) {
+        //stopLoading();
+        toastr.success("操作成功","温馨提示");
+        goBack();
+      }else{
+        toastr.error("操作失败","温馨提示");
+      }
+      },
+      complete:function(){
+        //console.log('complete');
+        //stopLoading();
+      }
+    });
+  }
+
+  var getInput = function(){
+    var input = {
+      school_name:$("#school_name").val(),
+      school_describe:$("#school_describe").val(),
+      school_address:$("#school_address").val(),
+      school_slogan:$("#school_slogan").val(),
+      school_regis_time:$("#school_regis_time").val(),
+    }
+    return input;
+  }
+
+  var submit = function(){
+    if (getQueryVariable("id")) {
+        update();
+    }else{
+      add();
+    }
+  }
+
+  var goBack = function(){
+    javascript:history.back(-1)
+  }
+</script>
+</body>
+</html>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="res"/>
 	<classpathentry kind="lib" path="build-lib/jetty-server-8.1.8.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/ansj_seg-5.1.5.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/beetl-2.8.6.jar"/>
@@ -24,7 +25,6 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jstl-1.1.2.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/log4j-1.2.17.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/log4jdbc4-1.2.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/mysql-connector-java-5.0.8-bin.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/nlp-lang-1.7.6.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/poi-4.0.0.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/PushJavaSDK.jar"/>
@@ -34,6 +34,7 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/standard-1.1.2.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xmlbeans-3.0.2.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/zxing.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/mysql-connector-java-5.0.8.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

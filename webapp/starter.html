@@ -32,27 +32,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+  <link rel="stylesheet" href="/dist/loading/css/animate.css">
+  <link rel="stylesheet" href="/dist/loading/css/global.css">
+  <link rel="stylesheet" href="/dist/loading/css/loading.css">
 </head>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
@@ -62,9 +46,9 @@ desired effect
     <!-- Logo -->
     <a href="index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>T</b>UTOR</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>学生导师</b>助手</span>
     </a>
 
     <!-- Header Navbar -->
@@ -73,6 +57,19 @@ desired effect
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
+
+      <div>
+        <ul id="module-bar" class="nav navbar-nav">
+          <!-- <li class="active">
+            <a href="#" >dsads</a>
+          </li>
+
+          <li>
+            <a href="#" >dsads</a>
+          </li> -->
+        </ul>
+      </div>
+
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
@@ -111,88 +108,27 @@ desired effect
             </ul>
           </li>
           <!-- /.messages-menu -->
-
-          <!-- Notifications Menu -->
-          <li class="dropdown notifications-menu">
-            <!-- Menu toggle button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
-              <li>
-                <!-- Inner Menu: contains the notifications -->
-                <ul class="menu">
-                  <li><!-- start notification -->
-                    <a href="#">
-                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                    </a>
-                  </li>
-                  <!-- end notification -->
-                </ul>
-              </li>
-              <li class="footer"><a href="#">View all</a></li>
-            </ul>
-          </li>
-          <!-- Tasks Menu -->
-          <li class="dropdown tasks-menu">
-            <!-- Menu Toggle Button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-flag-o"></i>
-              <span class="label label-danger">9</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 9 tasks</li>
-              <li>
-                <!-- Inner menu: contains the tasks -->
-                <ul class="menu">
-                  <li><!-- Task item -->
-                    <a href="#">
-                      <!-- Task title and progress text -->
-                      <h3>
-                        Design some buttons
-                        <small class="pull-right">20%</small>
-                      </h3>
-                      <!-- The progress bar -->
-                      <div class="progress xs">
-                        <!-- Change the css width attribute to simulate progress -->
-                        <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar"
-                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">20% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                </ul>
-              </li>
-              <li class="footer">
-                <a href="#">View all tasks</a>
-              </li>
-            </ul>
-          </li>
           <!-- User Account Menu -->
           <li class="dropdown user user-menu">
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img id="avatar" src="" class="user-image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span id="username" class="hidden-xs">用户名</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img id="avatar_2" src="dist/img/default_avatar.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  <strong id="username_2">用户名</strong>
+                  <small id="slogan">slogan</small>
                 </p>
               </li>
               <!-- Menu Body -->
-              <li class="user-body">
+              <!-- <li class="user-body">
                 <div class="row">
                   <div class="col-xs-4 text-center">
                     <a href="#">Followers</a>
@@ -204,23 +140,22 @@ desired effect
                     <a href="#">Friends</a>
                   </div>
                 </div>
-                <!-- /.row -->
-              </li>
+              </li> -->
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="/pages/userinfo/userinfo.html" target = "m" class="btn btn-default btn-flat">个人信息</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="#" class="btn btn-default btn-flat" onclick="signOut()">退出登录</a>
                 </div>
               </li>
             </ul>
           </li>
           <!-- Control Sidebar Toggle Button -->
-          <li>
+          <!-- <li>
             <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>
+          </li> -->
         </ul>
       </div>
     </nav>
@@ -234,10 +169,10 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img id="avatar_3" src="dist/img/default_avatar.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p id="username_3">用户名</p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -256,10 +191,11 @@ desired effect
       <!-- /.search form -->
 
       <!-- Sidebar Menu -->
+
       <ul id="sidebar-menu" class="sidebar-menu" data-widget="tree">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="index2.html" target="m" ><i class="fa fa-link"></i> <span>Link</span></a></li>
+        <!-- <li class="active"><a href="index2.html" target="m" ><i class="fa fa-link"></i> <span>Link</span></a></li>
         <li><a href="pages/layout/top-nav.html" target="m" ><i class="fa fa-link"></i> <span>Another Link</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
@@ -282,7 +218,7 @@ desired effect
             <li><a href="#">Link in level 2</a></li>
             <li><a href="#">Link in level 2</a></li>
           </ul>
-        </li>
+        </li> -->
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -290,9 +226,9 @@ desired effect
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div id="container" class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <section id="content-header" class="content-header">
       <h1>
         <h1 id="page-detail">Page Header</h1>
         <small>Optional description</small>
@@ -304,12 +240,12 @@ desired effect
     </section>
 
     <!-- Main content -->
-    <section class="content container-fluid">
+    <section id="content" class="content container-fluid">
 
       <!--------------------------
         | Your Page Content Here |
         -------------------------->
-        <iframe name="m" id="m" width="100%" height="900px" scrolling="auto" frameborder="0"></iframe>
+        <iframe name="m" id="m" width="100%" height="500px" scrolling="auto" frameborder="0"></iframe>
     </section>
     <!-- /.content -->
 
@@ -414,35 +350,51 @@ desired effect
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
 
+<script src="/dist/loading/js/loading.js"></script>
+<script src="/dist/jquery.cookie/jquery.cookie.js"></script>
+<script type="text/javascript" src="/pages/base/base.js"></script>
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->
 <script>
   window.onload = function(){
-    //alert(1);
-    let allMenu = document.querySelectorAll("#sidebar-menu a");
-    for (var i = 0; i < allMenu.length; i++) {
-      allMenu[i].onclick=function(){
-        if (!$(this.parentNode).hasClass('treeview')) {
-            navigateMenu(this);
-        }
-        var text = $(this).text();
-        $('#page-detail').text(text);
+    initWindow();
+    readLocal();
+    getModuleList();
+  }
+
+  function initWindow(){
+    $("#m").height($("#container").height()-$("#content-header").height()-50);
+  }
+
+  function signOut(){
+    logout();
+    window.location.href = '../login';
+  }
+
+  var readLocal = function(){
+    var userInfoStr = getUserInfo();
+    console.log(userInfoStr);
+    if (isEmpty(userInfoStr)) {
+      //说明已经登录
+      window.location.href = '../login';
+    }else{
+
+      var userObject = JSON.parse(userInfoStr);
+      //console.log(userObject);
+      if (userObject != null) {
+        $("#username").html(getText(userObject.realname,userObject.username));
+        $("#username_2").html(getText(userObject.realname,userObject.username));
+        $("#username_3").html(getText(userObject.realname,userObject.username));
+        $("#slogan").html(getText(userObject.slogan,'该用户很懒，什么也没说'));
+
+        $("#avatar").attr("src",getText(userObject.avatar,'/dist/img/default_avatar.jpg'));
+        $("#avatar_2").attr("src",getText(userObject.avatar,'/dist/img/default_avatar.jpg'));
+        $("#avatar_3").attr("src",getText(userObject.avatar,'/dist/img/default_avatar.jpg'));
+
       }
     }
-  }
-  function navigateMenu(element){
-    let _class = 'active';  // 需要添加的类名
-    let url = '';     // 需要跳转的URL
-    let parent = element.parentNode.parentNode;
-    let allMenu = document.querySelectorAll("#sidebar-menu li");
-    for (var i = 0; i < allMenu.length; i++) {
-      if (!$(allMenu[i]).hasClass('treeview')) {
-        $(allMenu[i]).removeClass(_class);
-      }
-    }
-    $(element.parentNode).addClass(_class);
-  }
+}
 </script>
 </body>
 </html>

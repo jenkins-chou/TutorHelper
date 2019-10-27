@@ -5,8 +5,7 @@ var app = express();
 var path = require('path');
 
 //路由列表
-
-//var uploadController = require("./controller/upload")
+var indexController = require("./controller/IndexController")
 
 
 //var urlencodedParser = bodyParser.urlencoded({extended:false})
@@ -27,7 +26,7 @@ app.post('/post',function(req,res){
     res.send('hello this is post request!');
 })
 
-//app.use('/upload',uploadController)
+app.use('/',indexController)
 
 
 app.listen(7777)
