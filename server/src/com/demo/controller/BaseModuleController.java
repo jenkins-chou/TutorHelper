@@ -3,24 +3,24 @@ package com.demo.controller;
 import java.util.List;
 
 import com.alibaba.fastjson.JSONObject;
-import com.demo.models.SchoolModel;
+import com.demo.models.BaseModuleModel;
 import com.demo.utils.Const;
 import com.demo.utils.CrossOrigin;
 import com.jfinal.core.Controller;
 import com.jfinal.kit.JsonKit;
 
 @CrossOrigin
-public class SchoolController  extends Controller {
+public class BaseModuleController  extends Controller {
 	
-	public static final String DB_TABLE = "base_school";
+	public static final String DB_TABLE = "base_module";
 	
 	@CrossOrigin
-	public void getAllSchool(){
-		List<SchoolModel> schoolModels = SchoolModel.dao.find("select * from "+DB_TABLE+" where del != 'delete'");
+	public void getAll(){
+		List<BaseModuleModel> models = BaseModuleModel.dao.find("select * from "+DB_TABLE+" where del != 'delete'");
 		JSONObject js = new JSONObject();
-		if(schoolModels!=null&&schoolModels.size()>=1){
+		if(models!=null&&models.size()>=1){
 			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);
-			js.put(Const.KEY_RES_DATA, schoolModels);
+			js.put(Const.KEY_RES_DATA, models);
 			System.out.println(JsonKit.toJson(js));
 			renderJson(JsonKit.toJson(js));
 		}else{
@@ -31,13 +31,13 @@ public class SchoolController  extends Controller {
 	}
 	
 	@CrossOrigin
-	public void getSchool(){
+	public void get(){
 		String id = getPara("id");
-		List<SchoolModel> schoolModels = SchoolModel.dao.find("select * from "+DB_TABLE+" where id = "+id+" and  del != 'delete'");
+		List<BaseModuleModel> models = BaseModuleModel.dao.find("select * from "+DB_TABLE+" where id = "+id+" and  del != 'delete'");
 		JSONObject js = new JSONObject();
-		if(schoolModels!=null&&schoolModels.size()>=1){
+		if(models!=null&&models.size()>=1){
 			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);
-			js.put(Const.KEY_RES_DATA, schoolModels.get(0));
+			js.put(Const.KEY_RES_DATA, models.get(0));
 			System.out.println(JsonKit.toJson(js));
 			renderJson(JsonKit.toJson(js));
 		}else{
@@ -47,10 +47,10 @@ public class SchoolController  extends Controller {
 	}
 	
 	@CrossOrigin
-	public void addSchool(){
+	public void add(){
 		JSONObject js = new JSONObject();
 		try{
-			SchoolModel model = getModel(SchoolModel.class, "", true);
+			BaseModuleModel model = getModel(BaseModuleModel.class, "", true);
 			model.set(Const.KEY_DB_CREATE_TIME, System.currentTimeMillis()/1000+"");
 			model.set(Const.KEY_DB_DEL, Const.OPTION_DB_NORMAL);
 			System.out.println("model:"+model);
@@ -64,10 +64,10 @@ public class SchoolController  extends Controller {
 	}
 	
 	@CrossOrigin
-	public void updateSchool(){
+	public void update(){
 		JSONObject js = new JSONObject();
 		try{
-			SchoolModel model = getModel(SchoolModel.class, "", true);
+			BaseModuleModel model = getModel(BaseModuleModel.class, "", true);
 			System.out.println("model:"+model);
 			model.update();
 			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);
@@ -79,10 +79,10 @@ public class SchoolController  extends Controller {
 	}
 	
 	@CrossOrigin
-	public void deleteSchool(){
+	public void delete(){
 		JSONObject js = new JSONObject();
 		try{
-			SchoolModel model = getModel(SchoolModel.class, "", true);
+			BaseModuleModel model = getModel(BaseModuleModel.class, "", true);
 			System.out.println("model:"+model);
 			model.set(Const.KEY_DB_DEL, Const.OPTION_DB_DELETE);
 			model.update();

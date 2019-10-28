@@ -35,6 +35,7 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xmlbeans-3.0.2.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/zxing.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/mysql-connector-java-5.0.8.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/freemarker.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>
