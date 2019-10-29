@@ -140,45 +140,12 @@
 <script type="text/javascript" src="/dist/toastr/toastr.js"></script>
 
 <script type="text/javascript">
-  //业务URI
-  var ROOT_URI = URI_BASE_SCHOOL;
-  
-  //必改项目
-  var getUrl = server_url+ROOT_URI+URI_BASE_GET;
-  var addUrl = server_url+ROOT_URI+URI_BASE_ADD;
-  var updateUrl = server_url+ROOT_URI+URI_BASE_UPDATE;
 
-  var getInput = function(){
-    var input = {
-      school_name:$("#school_name").val(),
-      school_describe:$("#school_describe").val(),
-      school_address:$("#school_address").val(),
-      school_slogan:$("#school_slogan").val(),
-      school_regis_time:$("#school_regis_time").val(),
-    }
-    return input;
-  }
-
-  var showInfo = function(data){
-        $("#school_name").val(data.school_name);
-        $("#school_describe").val(data.school_describe);
-        $("#school_address").val(data.school_address);
-        $("#school_slogan").val(data.school_slogan);
-        $("#school_regis_time").val(data.school_regis_time);
-  }
-
-  //初始化表单的时间选择器
-  var init = function(){
+  $(function(){
     $('#school_regis_time').datepicker({
       autoclose: true
     })
-  }
 
-
-  /**
-    以下函数不用改-------------
-  **/
-  $(function(){
     var id = getQueryVariable("id");
     if (id !=false) {
       getModifyInfo(id);
@@ -190,14 +157,18 @@
     $.ajax({
       type: "post",
       dataType: "json",
-      url: getUrl,
+      url: server_url+URI_GET_SCHOOL_INFO,
       data: {id:id},
       success: function (data) {       //data回调信息
         console.log(data);
       if (data != "" && data.code == 200) {
         //stopLoading();
         //toastr.success("操作成功","温馨提示");
-        showInfo(data.data);
+        $("#school_name").val(data.data.school_name);
+        $("#school_describe").val(data.data.school_describe);
+        $("#school_address").val(data.data.school_address);
+        $("#school_slogan").val(data.data.school_slogan);
+        $("#school_regis_time").val(data.data.school_regis_time);
       }else{
         //toastr.error("操作失败","温馨提示");
       }
@@ -209,11 +180,13 @@
     });
   }
 
+
+
   var add = function(){
     $.ajax({
       type: "post",
       dataType: "json",
-      url: addUrl,
+      url: server_url+URI_ADD_SCHOOL,
       data: getInput(),
       success: function (data) {       //data回调信息
       if (data != "" && data.code == 200) {
@@ -238,7 +211,7 @@
     $.ajax({
       type: "post",
       dataType: "json",
-      url: updateUrl,
+      url: server_url+URI_UPDATE_SCHOOL,
       data:params ,
       success: function (data) {       //data回调信息
       if (data != "" && data.code == 200) {
@@ -256,7 +229,16 @@
     });
   }
 
-
+  var getInput = function(){
+    var input = {
+      school_name:$("#school_name").val(),
+      school_describe:$("#school_describe").val(),
+      school_address:$("#school_address").val(),
+      school_slogan:$("#school_slogan").val(),
+      school_regis_time:$("#school_regis_time").val(),
+    }
+    return input;
+  }
 
   var submit = function(){
     if (getQueryVariable("id")) {

@@ -1,23 +1,29 @@
 //后台服务器访问地址
 var server_url = 'http://192.168.3.3:8888';
 
+//接口URI
 var URI_GET_MODULE = '/menu/getModuleList';
 var URI_GET_MENU = '/menu/getMenuList';
 var URI_LOGIN = '/user/login';
 var URI_REGISTER = '/user/register';
 var URI_UPDATE = '/user/updateUserInfo';
-
 var URI_GET_ALL_USERTYPE = '/user_type/getAllUserType';
-
 var URI_ADD_MENU = '/menu/addMenu';
 var URI_DELETE_MENU = '/menu/deleteMenu';
 
-var URI_GET_ALL_SCHOOL = '/school/getAllSchool';
-var URI_DELETE_SCHOOL = '/school/deleteSchool';
-var URI_ADD_SCHOOL = '/school/addSchool';
-var URI_GET_SCHOOL_INFO = '/school/getSchool';
-var URI_UPDATE_SCHOOL = '/school/updateSchool';
+//公共增删改查URI
+var URI_BASE_GET_ALL = "/getAll";
+var URI_BASE_DELETE = "/delete";
+var URI_BASE_ADD = "/add";
+var URI_BASE_GET = "/get";
+var URI_BASE_UPDATE = "/update";
 
+//业务部分URI
+var URI_BASE_SCHOOL = "/base_school";
+var URI_BASE_COLLEGE = "/base_college";
+var URI_BASE_CLASS = "/base_class";
+
+/*cookie 缓存key*/
 const KEY_USERNAME_CACHE = "username_cache";
 const KEY_PASSWORD_CACHE = "password_cache";
 const KEY_USERINFO = "userinfo";

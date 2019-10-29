@@ -143,11 +143,9 @@
   //业务URI
   var ROOT_URI = URI_BASE_SCHOOL;
   
-  //必改项目
-  var getUrl = server_url+ROOT_URI+URI_BASE_GET;
-  var addUrl = server_url+ROOT_URI+URI_BASE_ADD;
-  var updateUrl = server_url+ROOT_URI+URI_BASE_UPDATE;
-
+  /**
+  必改项目
+  **/
   var getInput = function(){
     var input = {
       school_name:$("#school_name").val(),
@@ -178,6 +176,11 @@
   /**
     以下函数不用改-------------
   **/
+
+  var getUrl = server_url+ROOT_URI+URI_BASE_GET;
+  var addUrl = server_url+ROOT_URI+URI_BASE_ADD;
+  var updateUrl = server_url+ROOT_URI+URI_BASE_UPDATE;
+
   $(function(){
     var id = getQueryVariable("id");
     if (id !=false) {
@@ -208,6 +211,8 @@
       }
     });
   }
+
+
 
   var add = function(){
     $.ajax({
@@ -255,8 +260,6 @@
       }
     });
   }
-
-
 
   var submit = function(){
     if (getQueryVariable("id")) {

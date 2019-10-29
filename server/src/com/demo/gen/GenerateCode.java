@@ -1,6 +1,7 @@
 package com.demo.gen;
 
 import java.io.BufferedWriter;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
@@ -9,9 +10,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
-
-import com.demo.controller.SchoolController;
-import com.demo.models.SchoolModel;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.DatabaseMetaData;
 import com.mysql.jdbc.ResultSet;
@@ -29,13 +27,13 @@ public class GenerateCode {
     private static final String MODEL_PACKAGE_PATH = "com.demo.models";
     
 	public static void main(String[] args){
-		try {
-			getAllTable();
-			//getUpper("postgraduate_exam");
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			//getAllTable();
+//			//getUpper("postgraduate_exam");
+//		} catch (ClassNotFoundException | SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 		//System.out.println(getUpper("postgraduate_exam"));
 	}

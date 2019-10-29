@@ -1,14 +1,6 @@
 package com.demo.common;
 
 import java.util.HashMap;
-
-
-
-
-
-
-
-
 import java.util.Map;
 
 import org.beetl.core.GroupTemplate;
@@ -45,7 +37,6 @@ import com.demo.controller.PsyTestSubjectController;
 import com.demo.controller.ScholarshipApplyRecordController;
 import com.demo.controller.ScholarshipController;
 import com.demo.controller.ScholarshipDistributionController;
-import com.demo.controller.SchoolController;
 import com.demo.controller.ScientSubjectController;
 import com.demo.controller.UploadController;
 import com.demo.controller.UserController;
@@ -80,7 +71,6 @@ import com.demo.models.PsyTestSubjectModel;
 import com.demo.models.ScholarshipApplyRecordModel;
 import com.demo.models.ScholarshipDistributionModel;
 import com.demo.models.ScholarshipModel;
-import com.demo.models.SchoolModel;
 import com.demo.models.ScientSubjectModel;
 import com.demo.models.UserModel;
 import com.demo.models.UserTypeModel;
@@ -132,7 +122,6 @@ public class SystemConfig extends JFinalConfig {
 		me.add("/user", UserController.class);
 		me.add("/user_type", UserTypeController.class);
 		me.add("/menu", MenuController.class);
-		me.add("/school", SchoolController.class);
 		
 		me.add("attendance",AttendanceController.class);
 		me.add("attendance_record",AttendanceRecordController.class);
@@ -177,8 +166,6 @@ public class SystemConfig extends JFinalConfig {
 		arp.addMapping("base_user", UserModel.class);
 		arp.addMapping("base_user_type", UserTypeModel.class);
 		arp.addMapping("base_menu", MenuModel.class);
-		arp.addMapping("base_school", SchoolModel.class);
-		
 		
 		
 		arp.addMapping("attendance", AttendanceModel.class);
