@@ -7,7 +7,7 @@ var URI_GET_MENU = '/menu/getMenuList';
 var URI_LOGIN = '/user/login';
 var URI_REGISTER = '/user/register';
 var URI_UPDATE = '/user/updateUserInfo';
-var URI_GET_ALL_USERTYPE = '/user_type/getAllUserType';
+var URI_GET_ALL_USERTYPE = '/base_user_type/getAll';
 var URI_ADD_MENU = '/menu/addMenu';
 var URI_DELETE_MENU = '/menu/deleteMenu';
 
@@ -17,6 +17,7 @@ var URI_BASE_DELETE = "/delete";
 var URI_BASE_ADD = "/add";
 var URI_BASE_GET = "/get";
 var URI_BASE_UPDATE = "/update";
+var URI_BASE_GET_TABLEINFO = "/getTableInfo";
 
 //业务部分URI
 var URI_BASE_SCHOOL = "/base_school";

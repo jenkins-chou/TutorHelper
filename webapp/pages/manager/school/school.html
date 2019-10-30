@@ -93,40 +93,64 @@
   // var URI_BASE_UPDATE = "/update";
 
   var getListUri = server_url + URI_BASE_SCHOOL + URI_BASE_GET_ALL;
-  var deleteUri = server_url + URI_BASE_SCHOOL + URI_BASE_UPDATE;
+  var deleteUri = server_url + URI_BASE_SCHOOL + URI_BASE_DELETE;
+  var getTableInfoUri = server_url + URI_BASE_SCHOOL + URI_BASE_GET_TABLEINFO;
 
   var addHtml = "school_modify.html";
 
-  var resetTable =  function (){
-    var container = $("#list");
-    var html = "<tr><th>ID</th><th>学校名称</th><th>描述</th><th>地址</th><th>校训</th><th>注册时间</th><th>操作</th></tr>";
-    container.html(html);
-  }
 
-  var getListHtml = function(item){
-      var listHtml = "<tr style='height:40px'><td>"+
 
-      item.id+"</td><td>"+
-      item.school_name+"</td><td>"+
-      item.school_describe+"</td><td>"+
-      item.school_address+"</td><td>"+
-      item.school_slogan+"</td><td>"+
-      item.school_regis_time+"</td><td>"+
+  /**
+  以下部分不用修改
+  **/
+  var tableInfo;
 
-        "<a href='#' onclick='modify("+item.id+")'><span class='label label-primary'><font style='vertical-align: inherit;'><font style='vertical-align: inherit;'>修改</font></font></span></a>"+
-        "<a href='#' onclick='deleteObject(this,"+item.id+")' style='margin-left:10px'><span class='label label-danger'><font style='vertical-align: inherit;'><font style='vertical-align: inherit;'>删除</font></font></span></a></td></tr>";
 
-        return listHtml;
-  }
+
 
 
   $(function(){
-    getAllList();
+    getTableInfo();
   });
 
+  var getTableInfo = function(){
+    $.ajax({
+      type: "post",
+      dataType: "json",
+      url: getTableInfoUri,
+      data: {},
+      success: function (data) {       //data回调信息
+      if (data != "" && data.code == 200) {
+        // console.log("getTableInfo");
+        // console.log(data);
+        tableInfo = data;
+        resetTable(data.column_comment);
+        getAllList();
+      }else{
+        //toastr.error("操作失败","温馨提示");
+      }
+      },
+      complete:function(){
+        //console.log('complete');
+      }
+    });
+  }
+
+  var resetTable =  function (table){
+    console.log(table);
+    var container = $("#list");
+    var html = "<tr>";
+    if (table != null && table.length >0) {
+      for (var i = 0; i < table.length; i++) {
+        html += "<td>"+table[i]+"</td>";
+      }
+    }
+    html += "<td>操作</td></tr>";
+    container.html(html);
+  }
 
   var getAllList = function(){
-    resetTable();
+    
     $.ajax({
       type: "post",
       dataType: "json",
@@ -134,7 +158,7 @@
       data: {},
       success: function (data) {       //data回调信息
       if (data != "" && data.code == 200) {
-        console.log(data);
+        //console.log(data);
         showList(data.data);
       }else{
         //toastr.error("操作失败","温馨提示");
@@ -147,7 +171,6 @@
   }
 
   function showList(data){
-    
     var container = $("#list");
     if (data == null || data.length <=0) {
       return;
@@ -155,6 +178,16 @@
     for (var i = 0; i < data.length; i++) {
       container.append(getListHtml(data[i]));
     }
+  }
+
+  var getListHtml = function(item){
+      var listHtml = "<tr style='height:40px'>";
+      for (var i = 0; i < tableInfo.column_name.length; i++) {
+        listHtml += "<td>"+item[tableInfo.column_name[i]]+"</td>";
+      }
+        listHtml +="<td><a href='#' onclick='modify("+item.id+")'><span class='label label-primary'><font style='vertical-align: inherit;'><font style='vertical-align: inherit;'>修改</font></font></span></a>"+
+        "<a href='#' onclick='deleteObject(this,"+item.id+")' style='margin-left:10px'><span class='label label-danger'><font style='vertical-align: inherit;'><font style='vertical-align: inherit;'>删除</font></font></span></a></td></tr>";
+        return listHtml;
   }
 
   function deleteObject(object,id){
