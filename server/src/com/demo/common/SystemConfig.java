@@ -1,6 +1,8 @@
 package com.demo.common;
 
 import java.util.HashMap;
+
+import java.util.List;
 import java.util.Map;
 
 import org.beetl.core.GroupTemplate;
@@ -25,7 +27,6 @@ import com.demo.controller.BaseUserController;
 import com.demo.controller.BaseUserTypeController;
 import com.demo.controller.EarlyReadingController;
 import com.demo.controller.IndexController;
-import com.demo.controller.MenuController;
 import com.demo.controller.PostgraduateExamController;
 import com.demo.controller.PostgraduateExamEnrollController;
 import com.demo.controller.PsyTestAnswerConsultController;
@@ -39,8 +40,6 @@ import com.demo.controller.ScholarshipController;
 import com.demo.controller.ScholarshipDistributionController;
 import com.demo.controller.ScientSubjectController;
 import com.demo.controller.UploadController;
-import com.demo.controller.UserController;
-import com.demo.controller.UserTypeController;
 import com.demo.models.AttendanceModel;
 import com.demo.models.AttendanceRecordModel;
 import com.demo.models.BaseCertModel;
@@ -59,7 +58,6 @@ import com.demo.models.BaseStateModel;
 import com.demo.models.BaseUserModel;
 import com.demo.models.BaseUserTypeModel;
 import com.demo.models.EarlyReadingModel;
-import com.demo.models.MenuModel;
 import com.demo.models.PostgraduateExamEnrollModel;
 import com.demo.models.PostgraduateExamModel;
 import com.demo.models.PsyTestAnswerConsultModel;
@@ -72,9 +70,8 @@ import com.demo.models.ScholarshipApplyRecordModel;
 import com.demo.models.ScholarshipDistributionModel;
 import com.demo.models.ScholarshipModel;
 import com.demo.models.ScientSubjectModel;
-import com.demo.models.UserModel;
-import com.demo.models.UserTypeModel;
 import com.demo.utils.CrossInterceptor;
+import com.demo.utils.DatabaseUtil;
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
 import com.jfinal.config.Interceptors;
@@ -94,13 +91,30 @@ public class SystemConfig extends JFinalConfig {
 	
 	public static final int port = 8888;
 	
+	
+	
 	public static void main(String[] args) {
 		//PathKit.setWebRootPath("/WebRoot");
+		
 		JFinal.start("WebRoot", port, "/", 5);
+		
+	}
+	
+	public void init(){
+		PropKit.use("db_config.txt");
+		DatabaseUtil.init();
+//		
+//		List list = DatabaseUtil.getTableInfo("base_user",DatabaseUtil.TableInfoEnum._ColumnComments);
+//		if(list != null){
+//			System.out.println(list);
+//		}
 	}
 	
 	public void configConstant(Constants me) {
-		PropKit.use("db_config.txt");
+		
+		init();
+		
+		//PropKit.use("db_config.txt");
 		me.setDevMode(PropKit.getBoolean("devMode", true));//热更新调试模式
 		me.setViewType(ViewType.JSP); 	
 		
@@ -119,9 +133,7 @@ public class SystemConfig extends JFinalConfig {
 	public void configRoute(Routes me) {
 		me.add("/", IndexController.class);	
 		me.add("/upload", UploadController.class);
-		me.add("/user", UserController.class);
-		me.add("/user_type", UserTypeController.class);
-		me.add("/menu", MenuController.class);
+		
 		
 		me.add("attendance",AttendanceController.class);
 		me.add("attendance_record",AttendanceRecordController.class);
@@ -156,18 +168,16 @@ public class SystemConfig extends JFinalConfig {
 	}
 	 
 	public void configPlugin(Plugins me) {
-		System.out.println(PropKit.get("jdbcUrl"));
 		C3p0Plugin c3p0Plugin = new C3p0Plugin(PropKit.get("jdbcUrl"), PropKit.get("user"), PropKit.get("password").trim());
 		me.add(c3p0Plugin);
 		
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(c3p0Plugin);
 		me.add(arp);
 	
-		arp.addMapping("base_user", UserModel.class);
-		arp.addMapping("base_user_type", UserTypeModel.class);
-		arp.addMapping("base_menu", MenuModel.class);
-		
-		
+//		arp.addMapping("base_user_type", UserTypeModel.class);
+//		arp.addMapping("base_menu", MenuModel.class);
+//		
+//		
 		arp.addMapping("attendance", AttendanceModel.class);
 		arp.addMapping("attendance_record", AttendanceRecordModel.class);
 		arp.addMapping("base_cert", BaseCertModel.class);

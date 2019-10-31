@@ -2,14 +2,16 @@
 var server_url = 'http://192.168.3.3:8888';
 
 //接口URI
-var URI_GET_MODULE = '/menu/getModuleList';
-var URI_GET_MENU = '/menu/getMenuList';
-var URI_LOGIN = '/user/login';
-var URI_REGISTER = '/user/register';
-var URI_UPDATE = '/user/updateUserInfo';
+
+var URI_LOGIN = '/base_user/login';
+var URI_REGISTER = '/base_user/register';
+var URI_UPDATE = '/base_user/updateUserInfo';
 var URI_GET_ALL_USERTYPE = '/base_user_type/getAll';
-var URI_ADD_MENU = '/menu/addMenu';
-var URI_DELETE_MENU = '/menu/deleteMenu';
+
+var URI_GET_MODULE = '/base_menu/getModuleList';
+var URI_GET_MENU = '/base_menu/getMenuList';
+var URI_ADD_MENU = '/base_menu/addMenu';
+var URI_DELETE_MENU = '/base_menu/deleteMenu';
 
 //公共增删改查URI
 var URI_BASE_GET_ALL = "/getAll";

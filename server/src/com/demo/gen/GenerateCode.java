@@ -2,6 +2,7 @@ package com.demo.gen;
 
 import java.io.BufferedWriter;
 
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
@@ -17,6 +18,8 @@ import com.mysql.jdbc.ResultSet;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 
+
+
 public class GenerateCode {
 	private static final String TEMPLATE_CONTROLLER_PATH = "src/com/demo/gen";
 	
@@ -26,17 +29,17 @@ public class GenerateCode {
     private static final String MODEL_CLASS_PATH = "src/com/demo/models";
     private static final String MODEL_PACKAGE_PATH = "com.demo.models";
     
-	public static void main(String[] args){
+//	public static void main(String[] args){
 //		try {
-//			//getAllTable();
+//			getAllTable();
 //			//getUpper("postgraduate_exam");
 //		} catch (ClassNotFoundException | SQLException e) {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-		
-		//System.out.println(getUpper("postgraduate_exam"));
-	}
+//		
+//		//System.out.println(getUpper("postgraduate_exam"));
+//	}
 	public static void getAllTable() throws ClassNotFoundException, SQLException{
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tutor_helper?user=root&password=root");

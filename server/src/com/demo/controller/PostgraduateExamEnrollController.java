@@ -1,9 +1,9 @@
-package ${classPath};
+package com.demo.controller;
 
 import java.util.List;
 
 import com.alibaba.fastjson.JSONObject;
-import com.demo.models.${modelName};
+import com.demo.models.PostgraduateExamEnrollModel;
 import com.demo.utils.Const;
 import com.demo.utils.CrossOrigin;
 import com.jfinal.core.Controller;
@@ -11,13 +11,13 @@ import com.jfinal.kit.JsonKit;
 import com.demo.utils.DatabaseUtil;
 
 @CrossOrigin
-public class ${className}  extends Controller {
+public class PostgraduateExamEnrollController  extends Controller {
 	
-	public static final String DB_TABLE = "${tableName}";
+	public static final String DB_TABLE = "postgraduate_exam_enroll";
 	
 	@CrossOrigin
 	public void getAll(){
-		List<${modelName}> models = ${modelName}.dao.find("select * from "+DB_TABLE+" where del != 'delete'");
+		List<PostgraduateExamEnrollModel> models = PostgraduateExamEnrollModel.dao.find("select * from "+DB_TABLE+" where del != 'delete'");
 		JSONObject js = new JSONObject();
 		if(models!=null&&models.size()>=1){
 			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);
@@ -34,7 +34,7 @@ public class ${className}  extends Controller {
 	@CrossOrigin
 	public void get(){
 		String id = getPara("id");
-		List<${modelName}> models = ${modelName}.dao.find("select * from "+DB_TABLE+" where id = "+id+" and  del != 'delete'");
+		List<PostgraduateExamEnrollModel> models = PostgraduateExamEnrollModel.dao.find("select * from "+DB_TABLE+" where id = "+id+" and  del != 'delete'");
 		JSONObject js = new JSONObject();
 		if(models!=null&&models.size()>=1){
 			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);
@@ -51,7 +51,7 @@ public class ${className}  extends Controller {
 	public void add(){
 		JSONObject js = new JSONObject();
 		try{
-			${modelName} model = getModel(${modelName}.class, "", true);
+			PostgraduateExamEnrollModel model = getModel(PostgraduateExamEnrollModel.class, "", true);
 			model.set(Const.KEY_DB_CREATE_TIME, System.currentTimeMillis()/1000+"");
 			model.set(Const.KEY_DB_DEL, Const.OPTION_DB_NORMAL);
 			System.out.println("model:"+model);
@@ -68,7 +68,7 @@ public class ${className}  extends Controller {
 	public void update(){
 		JSONObject js = new JSONObject();
 		try{
-			${modelName} model = getModel(${modelName}.class, "", true);
+			PostgraduateExamEnrollModel model = getModel(PostgraduateExamEnrollModel.class, "", true);
 			System.out.println("model:"+model);
 			model.update();
 			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);
@@ -83,7 +83,7 @@ public class ${className}  extends Controller {
 	public void delete(){
 		JSONObject js = new JSONObject();
 		try{
-			${modelName} model = getModel(${modelName}.class, "", true);
+			PostgraduateExamEnrollModel model = getModel(PostgraduateExamEnrollModel.class, "", true);
 			System.out.println("model:"+model);
 			model.set(Const.KEY_DB_DEL, Const.OPTION_DB_DELETE);
 			model.update();

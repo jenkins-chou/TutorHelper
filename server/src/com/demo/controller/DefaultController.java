@@ -2,10 +2,8 @@ package com.demo.controller;
 
 import java.util.List;
 
-
 import com.alibaba.fastjson.JSONObject;
 import com.demo.interfaces.ControllerInterface;
-import com.demo.models.UserModel;
 import com.demo.utils.Const;
 import com.demo.utils.CrossOrigin;
 import com.demo.utils.Log;
