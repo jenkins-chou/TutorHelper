@@ -48,65 +48,10 @@
             <!-- /.box-header -->
             <!-- form start -->
             <form role="form">
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">
-                    <font style="vertical-align: inherit;">
-                      <font style="vertical-align: inherit;">
-                      学校名称
-                    </font>
-                  </font>
-                </label>
-                <input id="school_name" type="email" class="form-control" id="exampleInputEmail1" placeholder="请输入">
-                </div>
+              <div id="form-body" class="box-body">
 
-                <div class="form-group">
-                  <label for="exampleInputEmail1">
-                    <font style="vertical-align: inherit;">
-                      <font style="vertical-align: inherit;">
-                      描述
-                    </font>
-                  </font>
-                </label>
-                <input id="school_describe" type="email" class="form-control" id="exampleInputEmail1" placeholder="请输入">
-                </div>
-
-                <div class="form-group">
-                  <label for="exampleInputEmail1">
-                    <font style="vertical-align: inherit;">
-                      <font style="vertical-align: inherit;">
-                      校址
-                    </font>
-                  </font>
-                </label>
-                <input id="school_address" type="email" class="form-control" id="exampleInputEmail1" placeholder="请输入">
-                </div>
-
-                <div class="form-group">
-                  <label for="exampleInputEmail1">
-                    <font style="vertical-align: inherit;">
-                      <font style="vertical-align: inherit;">
-                      校训
-                    </font>
-                  </font>
-                </label>
-                <input id="school_slogan" type="email" class="form-control" id="exampleInputEmail1" placeholder="请输入">
-                </div>
-
-                <div class="form-group">
-                  <label>注册时间:</label>
-
-                  <div class="input-group date">
-                    <div class="input-group-addon">
-                      <i class="fa fa-calendar"></i>
-                    </div>
-                    <input id="school_regis_time" type="text" class="form-control pull-right">
-                  </div>
-                  <!-- /.input group -->
-                </div>
               </div>
-
-              
+            
               <!-- /.box-body -->
             </form>
             <div class="box-footer">
@@ -141,51 +86,93 @@
 
 <script type="text/javascript">
   //业务URI
-  var ROOT_URI = URI_BASE_SCHOOL;
+  var ROOT_URI = URI_BASE_COLLEGE;
   
-  //必改项目
-  var getUrl = server_url+ROOT_URI+URI_BASE_GET;
-  var addUrl = server_url+ROOT_URI+URI_BASE_ADD;
-  var updateUrl = server_url+ROOT_URI+URI_BASE_UPDATE;
 
-  var getInput = function(){
-    var input = {
-      school_name:$("#school_name").val(),
-      school_describe:$("#school_describe").val(),
-      school_address:$("#school_address").val(),
-      school_slogan:$("#school_slogan").val(),
-      school_regis_time:$("#school_regis_time").val(),
-    }
-    return input;
-  }
-
-  var showInfo = function(data){
-        $("#school_name").val(data.school_name);
-        $("#school_describe").val(data.school_describe);
-        $("#school_address").val(data.school_address);
-        $("#school_slogan").val(data.school_slogan);
-        $("#school_regis_time").val(data.school_regis_time);
-  }
-
-  //初始化表单的时间选择器
+  //初始化y一些自定义的表单选项
   var init = function(){
     $('#school_regis_time').datepicker({
       autoclose: true
     })
   }
 
+  /**
+    以下部分不用修改
+  **/
+  var getUrl = server_url+ROOT_URI+URI_BASE_GET;
+  var addUrl = server_url+ROOT_URI+URI_BASE_ADD;
+  var updateUrl = server_url+ROOT_URI+URI_BASE_UPDATE;
+  var getTableInfoUri = server_url + ROOT_URI + URI_BASE_GET_TABLEINFO;
+
+  
+
 
   /**
     以下函数不用改-------------
   **/
   $(function(){
-    var id = getQueryVariable("id");
-    if (id !=false) {
-      getModifyInfo(id);
-    }
-    init();
+    getTableInfo();
 
   });
+
+  var tableInfo;
+  var getTableInfo = function(){
+    $.ajax({
+      type: "post",
+      dataType: "json",
+      url: getTableInfoUri,
+      data: {},
+      success: function (data) {       //data回调信息
+      if (data != "" && data.code == 200) {
+        // console.log("getTableInfo");
+        console.log(data);
+        tableInfo = data;
+        resetHtml(tableInfo);
+
+        init();
+
+        //若id存在表示修改，需要先获取信息
+        var id = getQueryVariable("id");
+        if (id !=false) {
+          getModifyInfo(id);
+        }
+      }else{
+        
+      }
+      },
+      complete:function(){
+        //console.log('complete');
+      }
+    });
+  }
+  var resetHtml = function(data){
+    $("#form-body").empty();
+    if (data == null || 
+      data.column_comment == null || 
+      data.column_comment.length <=0 || 
+      data.column_name == null ||
+      data.column_name.length <=0) {
+      return;
+    }
+
+    for (var i = 0; i < data.column_name.length; i++) {
+      //column_name[i]
+      if (data.column_filter[i] == 'normal') {
+        var html = "<div class='form-group'>" +
+                  "<label for='exampleInputEmail1'>" +
+                    "<font style='vertical-align: inherit;'>" +
+                      "<font style='vertical-align: inherit;'>" +
+                      data.column_comment[i] +
+                    "</font>"+
+                  "</font>"+
+                "</label>"+
+                "<input id='"+data.column_name[i]+"' type='email' class='form-control' id='exampleInputEmail1' placeholder='请输入'>"+
+                "</div>";
+        $("#form-body").append(html);
+      }
+      
+    }
+  }
 
   var getModifyInfo = function(id){
     $.ajax({
@@ -208,6 +195,21 @@
         //stopLoading();
       }
     });
+  }
+
+  var showInfo = function(data){
+    if (tableInfo == null) {return;}
+    console.log(data);
+    for (var i = 0; i < tableInfo.column_name.length; i++) {
+      console.log(tableInfo.column_filter[i]);
+      console.log(tableInfo.column_name[i]);
+      console.log(data[tableInfo.column_name[i]]);
+      if (tableInfo.column_filter[i] == 'normal') {
+        $('#'+tableInfo.column_name[i]).val(data[tableInfo.column_name[i]]);
+      }
+
+      console.log("------------");
+    }
   }
 
   var add = function(){
@@ -257,7 +259,16 @@
     });
   }
 
-
+  var getInput = function(){
+    var input = {};
+    if (tableInfo == null) {
+      return {};
+    }
+    for (var i = 0; i < tableInfo.column_name.length; i++) {
+      input[tableInfo.column_name[i]] = $('#'+tableInfo.column_name[i]).val();
+    }
+    return input;
+  }
 
   var submit = function(){
     if (getQueryVariable("id")) {

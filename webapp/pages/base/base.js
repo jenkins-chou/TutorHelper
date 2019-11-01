@@ -19,6 +19,7 @@ var URI_BASE_DELETE = "/delete";
 var URI_BASE_ADD = "/add";
 var URI_BASE_GET = "/get";
 var URI_BASE_UPDATE = "/update";
+var URI_BASE_SEARCH = "/search";
 var URI_BASE_GET_TABLEINFO = "/getTableInfo";
 
 //业务部分URI

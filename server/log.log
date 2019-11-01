@@ -18208,3 +18208,749 @@ java.lang.IllegalStateException: Load propties file by invoking PropKit.use(Stri
 	at com.jfinal.server.JettyServer.start(JettyServer.java:70)
 	at com.jfinal.core.JFinal.start(JFinal.java:162)
 	at com.demo.common.SystemConfig.main(SystemConfig.java:110)
+
+2019-11-01 22:20:32
+[ERROR]-[Thread: qtp1709537756-23]-[com.jfinal.core.ActionHandler.handle()]: /base_school/search
+com.jfinal.plugin.activerecord.ActiveRecordException: com.mysql.jdbc.exceptions.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'del != 'delete'' at line 1
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:662)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:672)
+	at com.demo.controller.BaseSchoolController.search(BaseSchoolController.java:123)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.jfinal.aop.Invocation.invoke(Invocation.java:73)
+	at com.demo.utils.CrossInterceptor.intercept(CrossInterceptor.java:15)
+	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:78)
+	at com.jfinal.ext.handler.ContextPathHandler.handle(ContextPathHandler.java:48)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:73)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: com.mysql.jdbc.exceptions.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'del != 'delete'' at line 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:936)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:2985)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1631)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:1723)
+	at com.mysql.jdbc.Connection.execSQL(Connection.java:3283)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1332)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:1467)
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:76)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:643)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:660)
+	... 35 more
+
+2019-11-01 22:20:37
+[ERROR]-[Thread: qtp1709537756-24]-[com.jfinal.core.ActionHandler.handle()]: /base_school/search
+com.jfinal.plugin.activerecord.ActiveRecordException: com.mysql.jdbc.exceptions.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'del != 'delete'' at line 1
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:662)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:672)
+	at com.demo.controller.BaseSchoolController.search(BaseSchoolController.java:123)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.jfinal.aop.Invocation.invoke(Invocation.java:73)
+	at com.demo.utils.CrossInterceptor.intercept(CrossInterceptor.java:15)
+	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:78)
+	at com.jfinal.ext.handler.ContextPathHandler.handle(ContextPathHandler.java:48)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:73)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: com.mysql.jdbc.exceptions.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'del != 'delete'' at line 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:936)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:2985)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1631)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:1723)
+	at com.mysql.jdbc.Connection.execSQL(Connection.java:3283)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1332)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:1467)
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:76)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:643)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:660)
+	... 35 more
+
+2019-11-01 22:20:43
+[ERROR]-[Thread: qtp1709537756-27]-[com.jfinal.core.ActionHandler.handle()]: /base_school/search
+com.jfinal.plugin.activerecord.ActiveRecordException: com.mysql.jdbc.exceptions.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'del != 'delete'' at line 1
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:662)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:672)
+	at com.demo.controller.BaseSchoolController.search(BaseSchoolController.java:123)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.jfinal.aop.Invocation.invoke(Invocation.java:73)
+	at com.demo.utils.CrossInterceptor.intercept(CrossInterceptor.java:15)
+	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:78)
+	at com.jfinal.ext.handler.ContextPathHandler.handle(ContextPathHandler.java:48)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:73)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: com.mysql.jdbc.exceptions.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'del != 'delete'' at line 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:936)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:2985)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1631)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:1723)
+	at com.mysql.jdbc.Connection.execSQL(Connection.java:3283)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1332)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:1467)
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:76)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:643)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:660)
+	... 35 more
+
+2019-11-01 22:46:16
+[WARN]-[Thread: JFinal-Scanner]-[org.eclipse.jetty.util.component.AbstractLifeCycle.setFailed()]: FAILED jfinal: java.lang.Error: Unresolved compilation problems: 
+	The import com.demo.controller.AttendanceController cannot be resolved
+	The import com.demo.controller.AttendanceRecordController cannot be resolved
+	The import com.demo.controller.BaseCertController cannot be resolved
+	The import com.demo.controller.BaseClassController cannot be resolved
+	The import com.demo.controller.BaseCollegeController cannot be resolved
+	The import com.demo.controller.BaseCommodityController cannot be resolved
+	The import com.demo.controller.BaseCourseController cannot be resolved
+	The import com.demo.controller.BaseEnterpriseController cannot be resolved
+	The import com.demo.controller.BaseEnterpriseTypeController cannot be resolved
+	The import com.demo.controller.BaseMessageController cannot be resolved
+	The import com.demo.controller.BaseModuleController cannot be resolved
+	The import com.demo.controller.BaseSchoolController cannot be resolved
+	The import com.demo.controller.BaseScoreController cannot be resolved
+	The import com.demo.controller.BaseStateController cannot be resolved
+	The import com.demo.controller.EarlyReadingController cannot be resolved
+	The import com.demo.controller.PostgraduateExamController cannot be resolved
+	The import com.demo.controller.PostgraduateExamEnrollController cannot be resolved
+	The import com.demo.controller.PsyTestAnswerConsultController cannot be resolved
+	The import com.demo.controller.PsyTestAnswerController cannot be resolved
+	The import com.demo.controller.PsyTestAnswerRecordController cannot be resolved
+	The import com.demo.controller.PsyTestItemController cannot be resolved
+	The import com.demo.controller.PsyTestItemTypeController cannot be resolved
+	The import com.demo.controller.PsyTestSubjectController cannot be resolved
+	The import com.demo.controller.ScholarshipApplyRecordController cannot be resolved
+	The import com.demo.controller.ScholarshipController cannot be resolved
+	The import com.demo.controller.ScholarshipDistributionController cannot be resolved
+	The import com.demo.controller.ScientSubjectController cannot be resolved
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<AttendanceController>)
+	AttendanceController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<AttendanceRecordController>)
+	AttendanceRecordController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseCertController>)
+	BaseCertController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseClassController>)
+	BaseClassController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseCollegeController>)
+	BaseCollegeController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseCommodityController>)
+	BaseCommodityController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseCourseController>)
+	BaseCourseController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseEnterpriseController>)
+	BaseEnterpriseController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseEnterpriseTypeController>)
+	BaseEnterpriseTypeController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseMessageController>)
+	BaseMessageController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseModuleController>)
+	BaseModuleController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseSchoolController>)
+	BaseSchoolController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseScoreController>)
+	BaseScoreController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseStateController>)
+	BaseStateController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<EarlyReadingController>)
+	EarlyReadingController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PostgraduateExamController>)
+	PostgraduateExamController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PostgraduateExamEnrollController>)
+	PostgraduateExamEnrollController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PsyTestAnswerController>)
+	PsyTestAnswerController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PsyTestAnswerConsultController>)
+	PsyTestAnswerConsultController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PsyTestAnswerRecordController>)
+	PsyTestAnswerRecordController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PsyTestItemController>)
+	PsyTestItemController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PsyTestItemTypeController>)
+	PsyTestItemTypeController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PsyTestSubjectController>)
+	PsyTestSubjectController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<ScholarshipController>)
+	ScholarshipController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<ScholarshipApplyRecordController>)
+	ScholarshipApplyRecordController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<ScholarshipDistributionController>)
+	ScholarshipDistributionController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<ScientSubjectController>)
+	ScientSubjectController cannot be resolved to a type
+
+java.lang.Error: Unresolved compilation problems: 
+	The import com.demo.controller.AttendanceController cannot be resolved
+	The import com.demo.controller.AttendanceRecordController cannot be resolved
+	The import com.demo.controller.BaseCertController cannot be resolved
+	The import com.demo.controller.BaseClassController cannot be resolved
+	The import com.demo.controller.BaseCollegeController cannot be resolved
+	The import com.demo.controller.BaseCommodityController cannot be resolved
+	The import com.demo.controller.BaseCourseController cannot be resolved
+	The import com.demo.controller.BaseEnterpriseController cannot be resolved
+	The import com.demo.controller.BaseEnterpriseTypeController cannot be resolved
+	The import com.demo.controller.BaseMessageController cannot be resolved
+	The import com.demo.controller.BaseModuleController cannot be resolved
+	The import com.demo.controller.BaseSchoolController cannot be resolved
+	The import com.demo.controller.BaseScoreController cannot be resolved
+	The import com.demo.controller.BaseStateController cannot be resolved
+	The import com.demo.controller.EarlyReadingController cannot be resolved
+	The import com.demo.controller.PostgraduateExamController cannot be resolved
+	The import com.demo.controller.PostgraduateExamEnrollController cannot be resolved
+	The import com.demo.controller.PsyTestAnswerConsultController cannot be resolved
+	The import com.demo.controller.PsyTestAnswerController cannot be resolved
+	The import com.demo.controller.PsyTestAnswerRecordController cannot be resolved
+	The import com.demo.controller.PsyTestItemController cannot be resolved
+	The import com.demo.controller.PsyTestItemTypeController cannot be resolved
+	The import com.demo.controller.PsyTestSubjectController cannot be resolved
+	The import com.demo.controller.ScholarshipApplyRecordController cannot be resolved
+	The import com.demo.controller.ScholarshipController cannot be resolved
+	The import com.demo.controller.ScholarshipDistributionController cannot be resolved
+	The import com.demo.controller.ScientSubjectController cannot be resolved
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<AttendanceController>)
+	AttendanceController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<AttendanceRecordController>)
+	AttendanceRecordController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseCertController>)
+	BaseCertController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseClassController>)
+	BaseClassController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseCollegeController>)
+	BaseCollegeController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseCommodityController>)
+	BaseCommodityController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseCourseController>)
+	BaseCourseController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseEnterpriseController>)
+	BaseEnterpriseController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseEnterpriseTypeController>)
+	BaseEnterpriseTypeController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseMessageController>)
+	BaseMessageController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseModuleController>)
+	BaseModuleController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseSchoolController>)
+	BaseSchoolController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseScoreController>)
+	BaseScoreController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseStateController>)
+	BaseStateController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<EarlyReadingController>)
+	EarlyReadingController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PostgraduateExamController>)
+	PostgraduateExamController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PostgraduateExamEnrollController>)
+	PostgraduateExamEnrollController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PsyTestAnswerController>)
+	PsyTestAnswerController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PsyTestAnswerConsultController>)
+	PsyTestAnswerConsultController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PsyTestAnswerRecordController>)
+	PsyTestAnswerRecordController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PsyTestItemController>)
+	PsyTestItemController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PsyTestItemTypeController>)
+	PsyTestItemTypeController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PsyTestSubjectController>)
+	PsyTestSubjectController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<ScholarshipController>)
+	ScholarshipController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<ScholarshipApplyRecordController>)
+	ScholarshipApplyRecordController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<ScholarshipDistributionController>)
+	ScholarshipDistributionController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<ScientSubjectController>)
+	ScientSubjectController cannot be resolved to a type
+
+	at com.demo.common.SystemConfig.<init>(SystemConfig.java:11)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at java.lang.Class.newInstance(Unknown Source)
+	at com.jfinal.core.JFinalFilter.createJFinalConfig(JFinalFilter.java:101)
+	at com.jfinal.core.JFinalFilter.init(JFinalFilter.java:47)
+	at org.eclipse.jetty.servlet.FilterHolder.doStart(FilterHolder.java:119)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:724)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer$1.onChange(JettyServer.java:119)
+	at com.jfinal.server.Scanner.compare(Scanner.java:94)
+	at com.jfinal.server.Scanner.working(Scanner.java:57)
+	at com.jfinal.server.Scanner.access$000(Scanner.java:31)
+	at com.jfinal.server.Scanner$1.run(Scanner.java:101)
+	at java.util.TimerThread.mainLoop(Unknown Source)
+	at java.util.TimerThread.run(Unknown Source)
+
+2019-11-01 22:46:16
+[WARN]-[Thread: JFinal-Scanner]-[org.eclipse.jetty.util.component.AbstractLifeCycle.setFailed()]: FAILED o.e.j.w.WebAppContext{/,file:/D:/github/TutorHelper/server/WebRoot/}: java.lang.Error: Unresolved compilation problems: 
+	The import com.demo.controller.AttendanceController cannot be resolved
+	The import com.demo.controller.AttendanceRecordController cannot be resolved
+	The import com.demo.controller.BaseCertController cannot be resolved
+	The import com.demo.controller.BaseClassController cannot be resolved
+	The import com.demo.controller.BaseCollegeController cannot be resolved
+	The import com.demo.controller.BaseCommodityController cannot be resolved
+	The import com.demo.controller.BaseCourseController cannot be resolved
+	The import com.demo.controller.BaseEnterpriseController cannot be resolved
+	The import com.demo.controller.BaseEnterpriseTypeController cannot be resolved
+	The import com.demo.controller.BaseMessageController cannot be resolved
+	The import com.demo.controller.BaseModuleController cannot be resolved
+	The import com.demo.controller.BaseSchoolController cannot be resolved
+	The import com.demo.controller.BaseScoreController cannot be resolved
+	The import com.demo.controller.BaseStateController cannot be resolved
+	The import com.demo.controller.EarlyReadingController cannot be resolved
+	The import com.demo.controller.PostgraduateExamController cannot be resolved
+	The import com.demo.controller.PostgraduateExamEnrollController cannot be resolved
+	The import com.demo.controller.PsyTestAnswerConsultController cannot be resolved
+	The import com.demo.controller.PsyTestAnswerController cannot be resolved
+	The import com.demo.controller.PsyTestAnswerRecordController cannot be resolved
+	The import com.demo.controller.PsyTestItemController cannot be resolved
+	The import com.demo.controller.PsyTestItemTypeController cannot be resolved
+	The import com.demo.controller.PsyTestSubjectController cannot be resolved
+	The import com.demo.controller.ScholarshipApplyRecordController cannot be resolved
+	The import com.demo.controller.ScholarshipController cannot be resolved
+	The import com.demo.controller.ScholarshipDistributionController cannot be resolved
+	The import com.demo.controller.ScientSubjectController cannot be resolved
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<AttendanceController>)
+	AttendanceController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<AttendanceRecordController>)
+	AttendanceRecordController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseCertController>)
+	BaseCertController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseClassController>)
+	BaseClassController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseCollegeController>)
+	BaseCollegeController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseCommodityController>)
+	BaseCommodityController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseCourseController>)
+	BaseCourseController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseEnterpriseController>)
+	BaseEnterpriseController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseEnterpriseTypeController>)
+	BaseEnterpriseTypeController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseMessageController>)
+	BaseMessageController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseModuleController>)
+	BaseModuleController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseSchoolController>)
+	BaseSchoolController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseScoreController>)
+	BaseScoreController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseStateController>)
+	BaseStateController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<EarlyReadingController>)
+	EarlyReadingController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PostgraduateExamController>)
+	PostgraduateExamController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PostgraduateExamEnrollController>)
+	PostgraduateExamEnrollController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PsyTestAnswerController>)
+	PsyTestAnswerController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PsyTestAnswerConsultController>)
+	PsyTestAnswerConsultController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PsyTestAnswerRecordController>)
+	PsyTestAnswerRecordController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PsyTestItemController>)
+	PsyTestItemController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PsyTestItemTypeController>)
+	PsyTestItemTypeController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PsyTestSubjectController>)
+	PsyTestSubjectController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<ScholarshipController>)
+	ScholarshipController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<ScholarshipApplyRecordController>)
+	ScholarshipApplyRecordController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<ScholarshipDistributionController>)
+	ScholarshipDistributionController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<ScientSubjectController>)
+	ScientSubjectController cannot be resolved to a type
+
+java.lang.Error: Unresolved compilation problems: 
+	The import com.demo.controller.AttendanceController cannot be resolved
+	The import com.demo.controller.AttendanceRecordController cannot be resolved
+	The import com.demo.controller.BaseCertController cannot be resolved
+	The import com.demo.controller.BaseClassController cannot be resolved
+	The import com.demo.controller.BaseCollegeController cannot be resolved
+	The import com.demo.controller.BaseCommodityController cannot be resolved
+	The import com.demo.controller.BaseCourseController cannot be resolved
+	The import com.demo.controller.BaseEnterpriseController cannot be resolved
+	The import com.demo.controller.BaseEnterpriseTypeController cannot be resolved
+	The import com.demo.controller.BaseMessageController cannot be resolved
+	The import com.demo.controller.BaseModuleController cannot be resolved
+	The import com.demo.controller.BaseSchoolController cannot be resolved
+	The import com.demo.controller.BaseScoreController cannot be resolved
+	The import com.demo.controller.BaseStateController cannot be resolved
+	The import com.demo.controller.EarlyReadingController cannot be resolved
+	The import com.demo.controller.PostgraduateExamController cannot be resolved
+	The import com.demo.controller.PostgraduateExamEnrollController cannot be resolved
+	The import com.demo.controller.PsyTestAnswerConsultController cannot be resolved
+	The import com.demo.controller.PsyTestAnswerController cannot be resolved
+	The import com.demo.controller.PsyTestAnswerRecordController cannot be resolved
+	The import com.demo.controller.PsyTestItemController cannot be resolved
+	The import com.demo.controller.PsyTestItemTypeController cannot be resolved
+	The import com.demo.controller.PsyTestSubjectController cannot be resolved
+	The import com.demo.controller.ScholarshipApplyRecordController cannot be resolved
+	The import com.demo.controller.ScholarshipController cannot be resolved
+	The import com.demo.controller.ScholarshipDistributionController cannot be resolved
+	The import com.demo.controller.ScientSubjectController cannot be resolved
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<AttendanceController>)
+	AttendanceController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<AttendanceRecordController>)
+	AttendanceRecordController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseCertController>)
+	BaseCertController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseClassController>)
+	BaseClassController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseCollegeController>)
+	BaseCollegeController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseCommodityController>)
+	BaseCommodityController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseCourseController>)
+	BaseCourseController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseEnterpriseController>)
+	BaseEnterpriseController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseEnterpriseTypeController>)
+	BaseEnterpriseTypeController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseMessageController>)
+	BaseMessageController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseModuleController>)
+	BaseModuleController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseSchoolController>)
+	BaseSchoolController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseScoreController>)
+	BaseScoreController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<BaseStateController>)
+	BaseStateController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<EarlyReadingController>)
+	EarlyReadingController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PostgraduateExamController>)
+	PostgraduateExamController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PostgraduateExamEnrollController>)
+	PostgraduateExamEnrollController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PsyTestAnswerController>)
+	PsyTestAnswerController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PsyTestAnswerConsultController>)
+	PsyTestAnswerConsultController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PsyTestAnswerRecordController>)
+	PsyTestAnswerRecordController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PsyTestItemController>)
+	PsyTestItemController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PsyTestItemTypeController>)
+	PsyTestItemTypeController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<PsyTestSubjectController>)
+	PsyTestSubjectController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<ScholarshipController>)
+	ScholarshipController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<ScholarshipApplyRecordController>)
+	ScholarshipApplyRecordController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<ScholarshipDistributionController>)
+	ScholarshipDistributionController cannot be resolved to a type
+	The method add(String, Class<? extends Controller>) in the type Routes is not applicable for the arguments (String, Class<ScientSubjectController>)
+	ScientSubjectController cannot be resolved to a type
+
+	at com.demo.common.SystemConfig.<init>(SystemConfig.java:11)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at java.lang.Class.newInstance(Unknown Source)
+	at com.jfinal.core.JFinalFilter.createJFinalConfig(JFinalFilter.java:101)
+	at com.jfinal.core.JFinalFilter.init(JFinalFilter.java:47)
+	at org.eclipse.jetty.servlet.FilterHolder.doStart(FilterHolder.java:119)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.servlet.ServletHandler.initialize(ServletHandler.java:724)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:265)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1250)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:706)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:492)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at com.jfinal.server.JettyServer$1.onChange(JettyServer.java:119)
+	at com.jfinal.server.Scanner.compare(Scanner.java:94)
+	at com.jfinal.server.Scanner.working(Scanner.java:57)
+	at com.jfinal.server.Scanner.access$000(Scanner.java:31)
+	at com.jfinal.server.Scanner$1.run(Scanner.java:101)
+	at java.util.TimerThread.mainLoop(Unknown Source)
+	at java.util.TimerThread.run(Unknown Source)
+
+2019-11-01 22:52:26
+[ERROR]-[Thread: qtp1709537756-24]-[com.jfinal.core.ActionHandler.handle()]: /base_school/search
+com.jfinal.plugin.activerecord.ActiveRecordException: com.mysql.jdbc.exceptions.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'like '%æ²™å�‘%' and del != 'delete'' at line 1
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:662)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:672)
+	at com.demo.controller.BaseSchoolController.search(BaseSchoolController.java:148)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.jfinal.aop.Invocation.invoke(Invocation.java:73)
+	at com.demo.utils.CrossInterceptor.intercept(CrossInterceptor.java:15)
+	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:78)
+	at com.jfinal.ext.handler.ContextPathHandler.handle(ContextPathHandler.java:48)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:73)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: com.mysql.jdbc.exceptions.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'like '%æ²™å�‘%' and del != 'delete'' at line 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:936)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:2985)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1631)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:1723)
+	at com.mysql.jdbc.Connection.execSQL(Connection.java:3283)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1332)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:1467)
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:76)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:643)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:660)
+	... 35 more
+
+2019-11-01 22:52:58
+[ERROR]-[Thread: qtp1709537756-27]-[com.jfinal.core.ActionHandler.handle()]: /base_school/search
+com.jfinal.plugin.activerecord.ActiveRecordException: com.mysql.jdbc.exceptions.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'like '%å­¦æ ¡%' and del != 'delete'' at line 1
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:662)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:672)
+	at com.demo.controller.BaseSchoolController.search(BaseSchoolController.java:148)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.jfinal.aop.Invocation.invoke(Invocation.java:73)
+	at com.demo.utils.CrossInterceptor.intercept(CrossInterceptor.java:15)
+	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:78)
+	at com.jfinal.ext.handler.ContextPathHandler.handle(ContextPathHandler.java:48)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:73)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: com.mysql.jdbc.exceptions.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'like '%å­¦æ ¡%' and del != 'delete'' at line 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:936)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:2985)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1631)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:1723)
+	at com.mysql.jdbc.Connection.execSQL(Connection.java:3283)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1332)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:1467)
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:76)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:643)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:660)
+	... 35 more
+
+2019-11-01 22:53:10
+[ERROR]-[Thread: qtp1709537756-21]-[com.jfinal.core.ActionHandler.handle()]: /base_school/search
+com.jfinal.plugin.activerecord.ActiveRecordException: com.mysql.jdbc.exceptions.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'like '%å­¦æ ¡%' and del != 'delete'' at line 1
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:662)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:672)
+	at com.demo.controller.BaseSchoolController.search(BaseSchoolController.java:148)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.jfinal.aop.Invocation.invoke(Invocation.java:73)
+	at com.demo.utils.CrossInterceptor.intercept(CrossInterceptor.java:15)
+	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:78)
+	at com.jfinal.ext.handler.ContextPathHandler.handle(ContextPathHandler.java:48)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:73)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: com.mysql.jdbc.exceptions.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'like '%å­¦æ ¡%' and del != 'delete'' at line 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:936)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:2985)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1631)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:1723)
+	at com.mysql.jdbc.Connection.execSQL(Connection.java:3283)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1332)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:1467)
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:76)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:643)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:660)
+	... 35 more
+
+2019-11-01 22:53:46
+[ERROR]-[Thread: qtp1709537756-21]-[com.jfinal.core.ActionHandler.handle()]: /base_school/search
+com.jfinal.plugin.activerecord.ActiveRecordException: com.mysql.jdbc.exceptions.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'like '%å­¦æ ¡%' and del != 'delete'' at line 1
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:662)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:672)
+	at com.demo.controller.BaseSchoolController.search(BaseSchoolController.java:148)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.jfinal.aop.Invocation.invoke(Invocation.java:73)
+	at com.demo.utils.CrossInterceptor.intercept(CrossInterceptor.java:15)
+	at com.jfinal.aop.Invocation.invoke(Invocation.java:67)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:78)
+	at com.jfinal.ext.handler.ContextPathHandler.handle(ContextPathHandler.java:48)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:73)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1307)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:453)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:137)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:560)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:231)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1072)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:382)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:193)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1006)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:365)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:485)
+	at org.eclipse.jetty.server.AbstractHttpConnection.content(AbstractHttpConnection.java:937)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.content(AbstractHttpConnection.java:998)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:856)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:240)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:628)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: com.mysql.jdbc.exceptions.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'like '%å­¦æ ¡%' and del != 'delete'' at line 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:936)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:2985)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1631)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:1723)
+	at com.mysql.jdbc.Connection.execSQL(Connection.java:3283)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1332)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:1467)
+	at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:76)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:643)
+	at com.jfinal.plugin.activerecord.Model.find(Model.java:660)
+	... 35 more

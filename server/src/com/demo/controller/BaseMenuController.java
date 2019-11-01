@@ -1,7 +1,10 @@
 package com.demo.controller;
 
-import java.util.List;
+import java.util.ArrayList;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.alibaba.fastjson.JSONObject;
 import com.demo.models.BaseMenuModel;
@@ -15,6 +18,20 @@ import com.demo.utils.DatabaseUtil;
 public class BaseMenuController  extends Controller {
 	
 	public static final String DB_TABLE = "base_menu";
+	
+	public static final Map<String,String> tableFilter = new HashMap();
+	
+	static{
+		tableFilter.put("id","hidden");
+		tableFilter.put("create_time","hidden");
+		tableFilter.put("del","hidden");
+	}
+	
+	public enum FilterType{
+		hidden,//隐藏字段
+		custom,//自定义
+		normal//默认
+	}
 	
 	/**
 	 * 获取模块名称
@@ -182,12 +199,19 @@ public class BaseMenuController  extends Controller {
 		JSONObject js = new JSONObject();
 		try{
 			List nameList = DatabaseUtil.getTableInfo(DB_TABLE,DatabaseUtil.TableInfoEnum._ColumnNames);
-			List typeList = DatabaseUtil.getTableInfo(DB_TABLE,DatabaseUtil.TableInfoEnum._ColumnTypes);
 			List commentList = DatabaseUtil.getTableInfo(DB_TABLE,DatabaseUtil.TableInfoEnum._ColumnComments);
-			
+			List filterList = new ArrayList();
+			for(int i=0;i<nameList.size();i++){
+				String filterTypeName = tableFilter.get(nameList.get(i));
+				if(filterTypeName == null || filterTypeName == ""){
+					filterList.add(FilterType.normal);
+				}else{
+					filterList.add(filterTypeName);
+				}	
+			}
 			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);
 			js.put("column_name", nameList);
-			js.put("column_type", typeList);
+			js.put("column_filter", filterList);
 			js.put("column_comment", commentList);
 			renderJson(JsonKit.toJson(js));
 		}catch(Exception e){

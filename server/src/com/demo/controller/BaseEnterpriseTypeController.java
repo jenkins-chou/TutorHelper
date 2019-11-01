@@ -1,6 +1,10 @@
 package com.demo.controller;
 
+import java.util.ArrayList;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.alibaba.fastjson.JSONObject;
 import com.demo.models.BaseEnterpriseTypeModel;
@@ -14,6 +18,20 @@ import com.demo.utils.DatabaseUtil;
 public class BaseEnterpriseTypeController  extends Controller {
 	
 	public static final String DB_TABLE = "base_enterprise_type";
+	
+	public static final Map<String,String> tableFilter = new HashMap();
+	
+	static{
+		tableFilter.put("id","hidden");
+		tableFilter.put("create_time","hidden");
+		tableFilter.put("del","hidden");
+	}
+	
+	public enum FilterType{
+		hidden,//隐藏字段
+		custom,//自定义
+		normal//默认
+	}
 	
 	@CrossOrigin
 	public void getAll(){
@@ -102,17 +120,42 @@ public class BaseEnterpriseTypeController  extends Controller {
 		JSONObject js = new JSONObject();
 		try{
 			List nameList = DatabaseUtil.getTableInfo(DB_TABLE,DatabaseUtil.TableInfoEnum._ColumnNames);
-			List typeList = DatabaseUtil.getTableInfo(DB_TABLE,DatabaseUtil.TableInfoEnum._ColumnTypes);
 			List commentList = DatabaseUtil.getTableInfo(DB_TABLE,DatabaseUtil.TableInfoEnum._ColumnComments);
-			
+			List filterList = new ArrayList();
+			for(int i=0;i<nameList.size();i++){
+				String filterTypeName = tableFilter.get(nameList.get(i));
+				if(filterTypeName == null || filterTypeName == ""){
+					filterList.add(FilterType.normal);
+				}else{
+					filterList.add(filterTypeName);
+				}	
+			}
 			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);
 			js.put("column_name", nameList);
-			js.put("column_type", typeList);
+			js.put("column_filter", filterList);
 			js.put("column_comment", commentList);
 			renderJson(JsonKit.toJson(js));
 		}catch(Exception e){
 			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_201);
 			renderJson(JsonKit.toJson(js));
+		}
+	}
+	
+	@CrossOrigin
+	public void search(){
+		String map = "";
+		String key = getPara("key");
+		List<BaseEnterpriseTypeModel> models = BaseEnterpriseTypeModel.dao.find("select * from "+DB_TABLE+" where "+map+" like '%"+key+"%' and del != 'delete'");
+		JSONObject js = new JSONObject();
+		if(models!=null && models.size()>=1){
+			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);
+			js.put(Const.KEY_RES_DATA, models);
+			System.out.println(JsonKit.toJson(js));
+			renderJson(JsonKit.toJson(js));
+		}else{
+			System.out.println("model:");
+			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_201); 
+			renderJson(js.toJSONString());
 		}
 	}
 }

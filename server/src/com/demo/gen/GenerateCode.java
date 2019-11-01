@@ -29,17 +29,17 @@ public class GenerateCode {
     private static final String MODEL_CLASS_PATH = "src/com/demo/models";
     private static final String MODEL_PACKAGE_PATH = "com.demo.models";
     
-//	public static void main(String[] args){
-//		try {
-//			getAllTable();
-//			//getUpper("postgraduate_exam");
-//		} catch (ClassNotFoundException | SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		
-//		//System.out.println(getUpper("postgraduate_exam"));
-//	}
+	public static void main(String[] args){
+		try {
+			getAllTable();
+			//getUpper("postgraduate_exam");
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		//System.out.println(getUpper("postgraduate_exam"));
+	}
 	public static void getAllTable() throws ClassNotFoundException, SQLException{
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tutor_helper?user=root&password=root");
@@ -53,8 +53,13 @@ public class GenerateCode {
 		//System.out.println("表名：" + rs.getString(3));
 		//System.out.println("表所属用户名：" + rs.getString(2));
 		
-			
-			genController(rs.getString(3));
+			if(rs.getString(3).equals("base_menu")||
+					rs.getString(3).equals("base_user")||
+					rs.getString(3).equals("base_user_type")){
+				
+			}else{
+				genController(rs.getString(3));
+			}
 			//genModel(rs.getString(3));
 		}
 		con.close();
