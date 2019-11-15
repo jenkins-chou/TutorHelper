@@ -23,14 +23,16 @@ public class PsyTestAnswerController  extends Controller {
 	
 	static{
 		tableFilter.put("id","hidden");
+		tableFilter.put("subject_id","custom");
+		tableFilter.put("item_id","custom");
 		tableFilter.put("create_time","hidden");
 		tableFilter.put("del","hidden");
 	}
 	
 	public enum FilterType{
-		hidden,//Òþ²Ø×Ö¶Î
-		custom,//×Ô¶¨Òå
-		normal//Ä¬ÈÏ
+		hidden,//ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½
+		custom,//ï¿½Ô¶ï¿½ï¿½ï¿½
+		normal//Ä¬ï¿½ï¿½
 	}
 	
 	@CrossOrigin

@@ -20,9 +20,11 @@ import com.demo.controller.BaseEnterpriseTypeController;
 import com.demo.controller.BaseMenuController;
 import com.demo.controller.BaseMessageController;
 import com.demo.controller.BaseModuleController;
+import com.demo.controller.BaseNewController;
 import com.demo.controller.BaseSchoolController;
 import com.demo.controller.BaseScoreController;
 import com.demo.controller.BaseStateController;
+import com.demo.controller.BaseTypeController;
 import com.demo.controller.BaseUserController;
 import com.demo.controller.BaseUserTypeController;
 import com.demo.controller.EarlyReadingController;
@@ -52,6 +54,7 @@ import com.demo.models.BaseEnterpriseTypeModel;
 import com.demo.models.BaseMenuModel;
 import com.demo.models.BaseMessageModel;
 import com.demo.models.BaseModuleModel;
+import com.demo.models.BaseNewModel;
 import com.demo.models.BaseSchoolModel;
 import com.demo.models.BaseScoreModel;
 import com.demo.models.BaseStateModel;
@@ -103,11 +106,6 @@ public class SystemConfig extends JFinalConfig {
 	public void init(){
 		PropKit.use("db_config.txt");
 		DatabaseUtil.init();
-//		
-//		List list = DatabaseUtil.getTableInfo("base_user",DatabaseUtil.TableInfoEnum._ColumnComments);
-//		if(list != null){
-//			System.out.println(list);
-//		}
 	}
 	
 	public void configConstant(Constants me) {
@@ -143,13 +141,14 @@ public class SystemConfig extends JFinalConfig {
 		me.add("base_commodity",BaseCommodityController.class);
 		me.add("base_course",BaseCourseController.class);
 		me.add("base_enterprise",BaseEnterpriseController.class);
-		me.add("base_enterprise_type",BaseEnterpriseTypeController.class);
+		me.add("base_new",BaseNewController.class);
 		me.add("base_menu",BaseMenuController.class);
 		me.add("base_message",BaseMessageController.class);
 		me.add("base_module",BaseModuleController.class);
 		me.add("base_school",BaseSchoolController.class);
 		me.add("base_score",BaseScoreController.class);
 		me.add("base_state",BaseStateController.class);
+		me.add("base_type",BaseTypeController.class);
 		me.add("base_user",BaseUserController.class);
 		me.add("base_user_type",BaseUserTypeController.class);
 		me.add("early_reading",EarlyReadingController.class);
@@ -159,7 +158,6 @@ public class SystemConfig extends JFinalConfig {
 		me.add("psy_test_answer_consult",PsyTestAnswerConsultController.class);
 		me.add("psy_test_answer_record",PsyTestAnswerRecordController.class);
 		me.add("psy_test_item",PsyTestItemController.class);
-		me.add("psy_test_item_type",PsyTestItemTypeController.class);
 		me.add("psy_test_subject",PsyTestSubjectController.class);
 		me.add("scholarship",ScholarshipController.class);
 		me.add("scholarship_apply_record",ScholarshipApplyRecordController.class);
@@ -180,19 +178,20 @@ public class SystemConfig extends JFinalConfig {
 //		
 		arp.addMapping("attendance", AttendanceModel.class);
 		arp.addMapping("attendance_record", AttendanceRecordModel.class);
+		arp.addMapping("base_new", BaseNewModel.class);
 		arp.addMapping("base_cert", BaseCertModel.class);
 		arp.addMapping("base_class", BaseClassModel.class);
 		arp.addMapping("base_college", BaseCollegeModel.class);
 		arp.addMapping("base_commodity", BaseCommodityModel.class);
 		arp.addMapping("base_course", BaseCourseModel.class);
 		arp.addMapping("base_enterprise", BaseEnterpriseModel.class);
-		arp.addMapping("base_enterprise_type", BaseEnterpriseTypeModel.class);
 		arp.addMapping("base_menu", BaseMenuModel.class);
 		arp.addMapping("base_message", BaseMessageModel.class);
 		arp.addMapping("base_module", BaseModuleModel.class);
 		arp.addMapping("base_school", BaseSchoolModel.class);
 		arp.addMapping("base_score", BaseScoreModel.class);
 		arp.addMapping("base_state", BaseStateModel.class);
+		arp.addMapping("base_type", BaseStateModel.class);
 		arp.addMapping("base_user", BaseUserModel.class);
 		arp.addMapping("base_user_type", BaseUserTypeModel.class);
 		arp.addMapping("early_reading", EarlyReadingModel.class);
@@ -202,7 +201,6 @@ public class SystemConfig extends JFinalConfig {
 		arp.addMapping("psy_test_answer_consult", PsyTestAnswerConsultModel.class);
 		arp.addMapping("psy_test_answer_record", PsyTestAnswerRecordModel.class);
 		arp.addMapping("psy_test_item", PsyTestItemModel.class);
-		arp.addMapping("psy_test_item_type", PsyTestItemTypeModel.class);
 		arp.addMapping("psy_test_subject", PsyTestSubjectModel.class);
 		arp.addMapping("scholarship", ScholarshipModel.class);
 		arp.addMapping("scholarship_apply_record", ScholarshipApplyRecordModel.class);

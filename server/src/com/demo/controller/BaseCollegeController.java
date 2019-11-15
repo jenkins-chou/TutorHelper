@@ -23,14 +23,15 @@ public class BaseCollegeController  extends Controller {
 	
 	static{
 		tableFilter.put("id","hidden");
+		tableFilter.put("school_id","custom");
 		tableFilter.put("create_time","hidden");
 		tableFilter.put("del","hidden");
 	}
 	
 	public enum FilterType{
-		hidden,//隐藏字段
-		custom,//自定义
-		normal//默认
+		hidden,
+		custom,
+		normal
 	}
 	
 	@CrossOrigin

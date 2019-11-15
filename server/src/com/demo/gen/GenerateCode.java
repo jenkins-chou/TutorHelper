@@ -50,15 +50,16 @@ public class GenerateCode {
 		DatabaseMetaData meta = (DatabaseMetaData) con.getMetaData();
 		ResultSet rs = (ResultSet) meta.getTables(null, null, null,new String[] { "TABLE" });
 		while (rs.next()) {
-		//System.out.println("±íÃû£º" + rs.getString(3));
-		//System.out.println("±íËùÊôÓÃ»§Ãû£º" + rs.getString(2));
+		//System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" + rs.getString(3));
+		//System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½" + rs.getString(2));
 		
 			if(rs.getString(3).equals("base_menu")||
 					rs.getString(3).equals("base_user")||
 					rs.getString(3).equals("base_user_type")){
 				
 			}else{
-				genController(rs.getString(3));
+				//genController(rs.getString(3));
+				genURL(rs.getString(3));
 			}
 			//genModel(rs.getString(3));
 		}
@@ -76,29 +77,29 @@ public class GenerateCode {
 	}
 	
 	public static void genController(String tableName){
-		// step1 ´´½¨freeMarkerÅäÖÃÊµÀý
+		// step1 ï¿½ï¿½ï¿½ï¿½freeMarkerï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½
         Configuration configuration = new Configuration();
         Writer out = null;
         try {
-            // step2 »ñÈ¡Ä£°æÂ·¾¶
+            // step2 ï¿½ï¿½È¡Ä£ï¿½ï¿½Â·ï¿½ï¿½
             configuration.setDirectoryForTemplateLoading(new File(TEMPLATE_CONTROLLER_PATH));
-            // step3 ´´½¨Êý¾ÝÄ£ÐÍ
+            // step3 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
             Map<String, Object> dataMap = new HashMap<String, Object>();
             String className = getUpper(tableName)+"Controller";
             dataMap.put("classPath", CONTROLLER_PACKAGE_PATH);
             dataMap.put("className", className);
             dataMap.put("tableName", tableName);
             dataMap.put("modelName", getUpper(tableName)+"Model");
-            // step4 ¼ÓÔØÄ£°æÎÄ¼þ
+            // step4 ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½Ä¼ï¿½
             Template template = configuration.getTemplate("ControllerTemplate.ftl");
-            // step5 Éú³ÉÊý¾Ý
+            // step5 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             File docFile = new File(CONTROLLER_CLASS_PATH + "\\" + className+".java");
             out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(docFile)));
-            // step6 Êä³öÎÄ¼þ
+            // step6 ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
             template.process(dataMap, out);
             ;
             System.out.println("me.add(\""+tableName+"\","+className+".class)");
-            //System.out.println("----------------->"+className+".java ÎÄ¼þ´´½¨³É¹¦ !");
+            //System.out.println("----------------->"+className+".java ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ !");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -113,29 +114,29 @@ public class GenerateCode {
 	}
 	
 	public static void genModel(String tableName){
-		// step1 ´´½¨freeMarkerÅäÖÃÊµÀý
+		// step1 ï¿½ï¿½ï¿½ï¿½freeMarkerï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½
         Configuration configuration = new Configuration();
         Writer out = null;
         try {
-            // step2 »ñÈ¡Ä£°æÂ·¾¶
+            // step2 ï¿½ï¿½È¡Ä£ï¿½ï¿½Â·ï¿½ï¿½
             configuration.setDirectoryForTemplateLoading(new File(TEMPLATE_CONTROLLER_PATH));
-            // step3 ´´½¨Êý¾ÝÄ£ÐÍ
+            // step3 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
             Map<String, Object> dataMap = new HashMap<String, Object>();
             String className = getUpper(tableName)+"Model";
             dataMap.put("classPath",MODEL_PACKAGE_PATH);
             dataMap.put("className", className);
             dataMap.put("tableName", tableName);
-            // step4 ¼ÓÔØÄ£°æÎÄ¼þ
+            // step4 ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½Ä¼ï¿½
             Template template = configuration.getTemplate("ModelTemplate.ftl");
-            // step5 Éú³ÉÊý¾Ý
+            // step5 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             File docFile = new File(MODEL_CLASS_PATH + "\\" + className+".java");
             out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(docFile)));
-            // step6 Êä³öÎÄ¼þ
+            // step6 ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
             template.process(dataMap, out);
             ;
 
             System.out.println("arp.addMapping(\""+tableName+"\", "+className+".class);");
-            //System.out.println("----------------->"+className+".java ÎÄ¼þ´´½¨³É¹¦ !");
+            //System.out.println("----------------->"+className+".java ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ !");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -147,6 +148,21 @@ public class GenerateCode {
                 e2.printStackTrace();
             }
         }
+	}
+	
+	public static void genURL(String name){
+		String[] str = name.split("");
+		StringBuilder sb = new StringBuilder();
+		for(int i=0;i<str.length;i++){
+			//System.out.print(str[i]);
+			String header = new String(str[i].charAt(0)+"");
+			if(header.equals("_")){
+				sb.append(header);
+			}else{
+				sb.append(header.toUpperCase());
+			}
+		}
+		System.out.println("var URI_"+sb.toString()+" = \"/"+name+"\";");
 	}
 	
 	public static String getUpper(String name){

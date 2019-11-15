@@ -1,5 +1,5 @@
 //后台服务器访问地址
-var server_url = 'http://192.168.3.3:8888';
+var server_url = 'http://localhost:8888';
 
 //接口URI
 
@@ -23,9 +23,47 @@ var URI_BASE_SEARCH = "/search";
 var URI_BASE_GET_TABLEINFO = "/getTableInfo";
 
 //业务部分URI
-var URI_BASE_SCHOOL = "/base_school";
-var URI_BASE_COLLEGE = "/base_college";
+var URI_ATTENDANCE = "/attendance";
+var URI_ATTENDANCE_RECORD = "/attendance_record";
+
+var URI_BASE_CERT = "/base_cert";
+
 var URI_BASE_CLASS = "/base_class";
+var URI_BASE_COLLEGE = "/base_college";
+var URI_BASE_SCHOOL = "/base_school";
+
+var URI_BASE_COURSE = "/base_course";
+var URI_BASE_SCORE = "/base_score";
+
+var URI_BASE_ENTERPRISE = "/base_enterprise";
+var URI_BASE_COMMODITY = "/base_commodity";
+
+var URI_BASE_USER = "/base_user";
+var URI_BASE_USER_TYPE = "/base_user_type";
+var URI_BASE_MESSAGE = "/base_message";
+
+var URI_BASE_MODULE = "/base_module";
+var URI_BASE_STATE = "/base_state";
+var URI_BASE_TYPE = "/base_type";
+
+var URI_BASE_NEW = "/base_new";
+
+var URI_EARLY_READING = "/early_reading";
+
+var URI_POSTGRADUATE_EXAM = "/postgraduate_exam";
+var URI_POSTGRADUATE_EXAM_ENROLL = "/postgraduate_exam_enroll";
+
+var URI_PSY_TEST_ANSWER = "/psy_test_answer";
+var URI_PSY_TEST_ANSWER_CONSULT = "/psy_test_answer_consult";
+var URI_PSY_TEST_ANSWER_RECORD = "/psy_test_answer_record";
+var URI_PSY_TEST_ITEM = "/psy_test_item";
+var URI_PSY_TEST_SUBJECT = "/psy_test_subject";
+
+var URI_SCHOLARSHIP = "/scholarship";
+var URI_SCHOLARSHIP_APPLY_RECORD = "/scholarship_apply_record";
+var URI_SCHOLARSHIP_DISTRIBUTION = "/scholarship_distribution";
+
+var URI_SCIENT_SUBJECT = "/scient_subject";
 
 /*cookie 缓存key*/
 const KEY_USERNAME_CACHE = "username_cache";
@@ -241,5 +279,3 @@ var navigateMenu = function (element){
     }
     $(element.parentNode).addClass(_class);
 }
-
-

@@ -6,12 +6,12 @@ var path = require('path');
 
 router.get('/login', function (req, res) {
     //res.send('hello this is xiaoyunhui app server api');
-    res.sendFile(path.join(__dirname, '../pages/login/login.html'));
+    res.sendFile(path.join(__dirname, '../pages/common/login/login.html'));
 });
 
 
 router.get('/register', function (req, res) {
     //res.send('hello this is xiaoyunhui app server api');
-    res.sendFile(path.join(__dirname, '../pages/register/register.html'));
+    res.sendFile(path.join(__dirname, '../pages/common/register/register.html'));
 });
 module.exports = router;
