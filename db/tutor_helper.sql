@@ -11,7 +11,7 @@
  Target Server Version : 50727
  File Encoding         : 65001
 
- Date: 15/11/2019 22:55:26
+ Date: 30/11/2019 19:36:58
 */
 
 SET NAMES utf8mb4;
@@ -220,7 +220,7 @@ CREATE TABLE `base_menu` (
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   `del` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of base_menu
@@ -285,17 +285,16 @@ INSERT INTO `base_menu` VALUES (87, '我的申请', '2', '39', NULL, '../pages/s
 INSERT INTO `base_menu` VALUES (88, '考研项目', '2', '40', NULL, '../pages/student/postgraduate_exam/list.html', 1, NULL, '1', NULL, NULL, 'normal');
 INSERT INTO `base_menu` VALUES (89, '我的报名', '2', '40', NULL, '../pages/student/postgraduate_exam_enroll/list.html', 1, NULL, '1', NULL, NULL, 'normal');
 INSERT INTO `base_menu` VALUES (90, '早读列表', '2', '41', NULL, '../pages/student/early_reading/list.html', 1, NULL, '1', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (91, '新闻管理', '1', '1', NULL, NULL, 2, NULL, '4', NULL, NULL, 'normal');
+INSERT INTO `base_menu` VALUES (91, '新闻管理', '1', '1', NULL, '', 2, NULL, '4', NULL, NULL, 'normal');
 INSERT INTO `base_menu` VALUES (92, '新闻列表', '2', '91', NULL, '../pages/manager/base_new/list.html', 2, NULL, '4', NULL, NULL, 'normal');
 INSERT INTO `base_menu` VALUES (93, '科研管理', '1', '1', NULL, NULL, 1, NULL, '2', NULL, NULL, 'normal');
 INSERT INTO `base_menu` VALUES (94, '学习资讯', '1', '1', NULL, NULL, 1, NULL, '2', NULL, NULL, 'normal');
 INSERT INTO `base_menu` VALUES (95, '考研信息', '1', '1', NULL, NULL, 1, NULL, '2', NULL, NULL, 'normal');
 INSERT INTO `base_menu` VALUES (96, '学生管理', '1', '1', NULL, NULL, 1, NULL, '2', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (97, '科研项目发布', '2', '93', NULL, NULL, 1, NULL, '2', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (98, '学习资讯发布', '2', '93', NULL, NULL, 1, NULL, '2', NULL, NULL, 'delete');
-INSERT INTO `base_menu` VALUES (99, '学习资讯发布', '2', '94', NULL, NULL, 1, NULL, '2', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (100, '考研信息发布', '2', '94', NULL, NULL, 1, NULL, '2', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (101, '学生管理', '2', '96', NULL, NULL, 1, NULL, '2', NULL, NULL, 'normal');
+INSERT INTO `base_menu` VALUES (97, '科研项目发布', '2', '93', NULL, '../pages/teacher/scient_subject/list.html', 1, NULL, '2', NULL, NULL, 'normal');
+INSERT INTO `base_menu` VALUES (99, '学习资讯发布', '2', '94', NULL, '../pages/teacher/base_new/list.html', 1, NULL, '2', NULL, NULL, 'normal');
+INSERT INTO `base_menu` VALUES (101, '学生管理', '2', '96', NULL, '../pages/teacher/base_user/list.html', 1, NULL, '2', NULL, NULL, 'normal');
+INSERT INTO `base_menu` VALUES (102, '考研信息发布', '2', '95', NULL, '../pages/teacher/postgraduate_exam/list.html', 1, NULL, '2', NULL, NULL, 'normal');
 COMMIT;
 
 -- ----------------------------
@@ -494,7 +493,7 @@ CREATE TABLE `base_user` (
 -- Records of base_user
 -- ----------------------------
 BEGIN;
-INSERT INTO `base_user` VALUES (7, '456', '456', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2', '学生', NULL, NULL, '1572004895', NULL, 'normal');
+INSERT INTO `base_user` VALUES (7, '456', '456', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2', '教师', NULL, NULL, '1572004895', NULL, 'normal');
 INSERT INTO `base_user` VALUES (8, 'admin', 'admin', '系统管理员', '134126', 'email', '联系地址', 'wchat', 'qq', '26', '', 'hello', '地区', '4', '系统管理员', NULL, NULL, NULL, NULL, 'normal');
 INSERT INTO `base_user` VALUES (9, '123', '123', '周先生', '电话', 'email', '地址', '13413739238923', 'qq号', '21', NULL, '签名', '广东', '1', '学生', NULL, NULL, '1572147442', NULL, 'normal');
 INSERT INTO `base_user` VALUES (12, '789', '789', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '学生', NULL, NULL, '1572150642', NULL, 'normal');
