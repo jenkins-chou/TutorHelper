@@ -1,21 +1,19 @@
 /*
- Navicat Premium Data Transfer
+Navicat MySQL Data Transfer
 
- Source Server         : root
- Source Server Type    : MySQL
- Source Server Version : 50727
- Source Host           : localhost:3306
- Source Schema         : tutor_helper
+Source Server         : root
+Source Server Version : 50728
+Source Host           : localhost:3306
+Source Database       : tutor_helper
 
- Target Server Type    : MySQL
- Target Server Version : 50727
- File Encoding         : 65001
+Target Server Type    : MYSQL
+Target Server Version : 50728
+File Encoding         : 65001
 
- Date: 30/11/2019 19:36:58
+Date: 2019-12-08 23:48:55
 */
 
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
+SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
 -- Table structure for attendance
@@ -38,10 +36,8 @@ CREATE TABLE `attendance` (
 -- ----------------------------
 -- Records of attendance
 -- ----------------------------
-BEGIN;
-INSERT INTO `attendance` VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, '1573057167', NULL, 'delete');
-INSERT INTO `attendance` VALUES (2, 'dsadsadsad', NULL, NULL, NULL, NULL, NULL, '1573224513', NULL, 'normal');
-COMMIT;
+INSERT INTO `attendance` VALUES ('1', null, null, null, null, null, null, '1573057167', null, 'delete');
+INSERT INTO `attendance` VALUES ('2', 'dsadsadsad', null, null, null, null, null, '1573224513', null, 'normal');
 
 -- ----------------------------
 -- Table structure for attendance_record
@@ -63,9 +59,7 @@ CREATE TABLE `attendance_record` (
 -- ----------------------------
 -- Records of attendance_record
 -- ----------------------------
-BEGIN;
-INSERT INTO `attendance_record` VALUES (1, 2, 7, '已签到', NULL, NULL, '1573360055', NULL, 'normal');
-COMMIT;
+INSERT INTO `attendance_record` VALUES ('1', '2', '7', '已签到', null, null, '1573360055', null, 'normal');
 
 -- ----------------------------
 -- Table structure for base_cert
@@ -83,6 +77,10 @@ CREATE TABLE `base_cert` (
   `del` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of base_cert
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for base_class
@@ -104,10 +102,8 @@ CREATE TABLE `base_class` (
 -- ----------------------------
 -- Records of base_class
 -- ----------------------------
-BEGIN;
-INSERT INTO `base_class` VALUES (1, NULL, NULL, NULL, NULL, NULL, '1573045704', NULL, 'delete');
-INSERT INTO `base_class` VALUES (2, 11, 2, 'dasds 啊', '的撒打算', '放大放大', '1573219537', '放大时', 'normal');
-COMMIT;
+INSERT INTO `base_class` VALUES ('1', null, null, null, null, null, '1573045704', null, 'delete');
+INSERT INTO `base_class` VALUES ('2', '11', '2', 'dasds 啊', '的撒打算', '放大放大', '1573219537', '放大时', 'normal');
 
 -- ----------------------------
 -- Table structure for base_college
@@ -130,10 +126,8 @@ CREATE TABLE `base_college` (
 -- ----------------------------
 -- Records of base_college
 -- ----------------------------
-BEGIN;
-INSERT INTO `base_college` VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, '1572970487', NULL, 'delete');
-INSERT INTO `base_college` VALUES (2, 11, '计算机学院', NULL, NULL, NULL, NULL, '1573144426', NULL, 'normal');
-COMMIT;
+INSERT INTO `base_college` VALUES ('1', null, null, null, null, null, null, '1572970487', null, 'delete');
+INSERT INTO `base_college` VALUES ('2', '11', '计算机学院', null, null, null, null, '1573144426', null, 'normal');
 
 -- ----------------------------
 -- Table structure for base_commodity
@@ -155,6 +149,10 @@ CREATE TABLE `base_commodity` (
   `del` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`commodity_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of base_commodity
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for base_course
@@ -180,9 +178,7 @@ CREATE TABLE `base_course` (
 -- ----------------------------
 -- Records of base_course
 -- ----------------------------
-BEGIN;
-INSERT INTO `base_course` VALUES (1, '3232', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1573224240', NULL, 'delete');
-COMMIT;
+INSERT INTO `base_course` VALUES ('1', '3232', null, null, null, null, null, null, null, null, '1573224240', null, 'delete');
 
 -- ----------------------------
 -- Table structure for base_enterprise
@@ -201,6 +197,51 @@ CREATE TABLE `base_enterprise` (
   `del` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of base_enterprise
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for base_enterprise_copy
+-- ----------------------------
+DROP TABLE IF EXISTS `base_enterprise_copy`;
+CREATE TABLE `base_enterprise_copy` (
+  `enterprise_id` int(11) NOT NULL AUTO_INCREMENT,
+  `enterprise_name` varchar(255) DEFAULT NULL,
+  `enterprise_describe` varchar(255) DEFAULT NULL,
+  `enterprise_logo` varchar(255) DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `enterprise_people_num` varchar(255) DEFAULT NULL,
+  `enterprise_regis_time` varchar(255) DEFAULT NULL,
+  `create_time` varchar(255) DEFAULT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  `del` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`enterprise_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of base_enterprise_copy
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for base_enterprise_type
+-- ----------------------------
+DROP TABLE IF EXISTS `base_enterprise_type`;
+CREATE TABLE `base_enterprise_type` (
+  `type_id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(255) DEFAULT NULL,
+  `describe` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `create_time` varchar(255) DEFAULT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  `del` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`type_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of base_enterprise_type
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for base_menu
@@ -225,77 +266,75 @@ CREATE TABLE `base_menu` (
 -- ----------------------------
 -- Records of base_menu
 -- ----------------------------
-BEGIN;
-INSERT INTO `base_menu` VALUES (1, '系统设置', '1', '0', NULL, '', 999, '', '4', '', '', 'normal');
-INSERT INTO `base_menu` VALUES (3, '子菜单一', '2', '1', NULL, '../', 111, 'fa-pie-chart', '1', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (5, '菜单设置', '2', '1', NULL, '../pages/manager/system/menu.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (33, '学生成绩', '1', '1', NULL, NULL, 3, NULL, '1', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (34, '心里测试', '1', '1', NULL, NULL, 1, NULL, '1', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (35, '科研管理', '1', '1', NULL, NULL, 1, NULL, '1', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (36, '新闻推荐', '1', '1', NULL, NULL, 1, NULL, '1', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (37, '考勤管理', '1', '1', NULL, NULL, 1, NULL, '1', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (38, '家园互动', '1', '1', NULL, NULL, 1, NULL, '1', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (39, '奖学金', '1', '1', NULL, NULL, 1, NULL, '1', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (40, '考研管理', '1', '1', NULL, NULL, 1, NULL, '1', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (41, '早读管理', '1', '1', NULL, NULL, 1, NULL, '1', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (43, '学校管理', '1', '1', NULL, NULL, 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (45, '学校列表', '2', '43', NULL, '../pages/manager/base_school/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (46, '学院管理', '2', '43', NULL, '../pages/manager/base_college/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (47, '班级管理', '2', '43', NULL, '../pages/manager/base_class/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (48, '奖学金管理', '1', '1', NULL, NULL, 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (49, '心理测试', '1', '1', NULL, NULL, 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (50, '考研管理', '1', '1', NULL, NULL, 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (51, '早读管理', '1', '1', NULL, NULL, 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (52, '用户管理', '1', '1', NULL, NULL, 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (53, '课程管理', '1', '1', NULL, NULL, 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (54, '签到管理', '1', '1', NULL, NULL, 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (55, '数据字典', '1', '1', NULL, NULL, 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (56, '奖学金项目', '2', '48', NULL, '../pages/manager/scholarship/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (57, '奖学金分配', '2', '48', NULL, '../pages/manager/scholarship_distribution/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (58, '奖学金申请', '2', '48', NULL, '../pages/manager/scholarship_apply_record/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (59, '科研管理', '1', '1', NULL, NULL, 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (60, '测试项目', '2', '49', NULL, '../pages/manager/psy_test_subject/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (61, '测试试题', '2', '49', NULL, '../pages/manager/psy_test_item/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (62, '参考回答', '2', '49', NULL, '../pages/manager/psy_test_answer_consult/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (63, '预置答案', '2', '49', NULL, '../pages/manager/psy_test_answer/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (64, '作答记录', '2', '49', NULL, '../pages/manager/psy_test_answer_record/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (65, '早读记录', '2', '51', NULL, '../pages/manager/early_reading/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (66, '用户列表', '2', '52', NULL, '../pages/manager/base_user/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (67, '用户类型', '2', '52', NULL, '../pages/manager/base_user_type/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (68, '基础类型字典', '2', '55', NULL, '../pages/manager/base_type/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (69, '基础状态字典', '2', '55', NULL, '../pages/manager/base_state/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (70, '功能模块字典', '2', '55', NULL, '../pages/manager/base_module/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (71, '成绩管理', '2', '53', NULL, '../pages/manager/base_score/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (72, '课程管理', '2', '53', NULL, '../pages/manager/base_course/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (73, '邮件管理', '2', '52', NULL, '../pages/manager/base_message/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (74, '考研项目', '2', '50', NULL, '../pages/manager/postgraduate_exam/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (75, '考研预报名', '2', '50', NULL, '../pages/manager/postgraduate_exam_enroll/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (76, '签到项目', '2', '54', NULL, '../pages/manager/attendance/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (77, '签到记录', '2', '54', NULL, '../pages/manager/attendance_record/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (78, '科研项目管理', '2', '59', NULL, '../pages/manager/scient_subject/list.html', 1, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (79, '成绩查询', '2', '33', NULL, '../pages/student/base_score/list.html', 1, NULL, '1', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (80, '课程查询', '2', '33', NULL, '../pages/student/base_course/list.html', 1, NULL, '1', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (81, '题目列表', '2', '34', NULL, '../pages/student/psy_test/list.html', 1, NULL, '1', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (82, '我的测试', '2', '34', NULL, NULL, 1, NULL, '1', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (83, '项目列表', '2', '35', NULL, '../pages/student/scient_subject/list.html', 1, NULL, '1', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (84, '热门推荐', '2', '36', NULL, '../pages/student/new/list.html', 1, NULL, '1', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (85, '我的考勤', '2', '37', NULL, '../pages/student/attendance_record/list.html', 1, NULL, '1', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (86, '奖学金列表', '2', '39', NULL, '../pages/student/scholarship/list.html', 1, NULL, '1', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (87, '我的申请', '2', '39', NULL, '../pages/student/scholarship_apply_record/list.html', 1, NULL, '1', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (88, '考研项目', '2', '40', NULL, '../pages/student/postgraduate_exam/list.html', 1, NULL, '1', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (89, '我的报名', '2', '40', NULL, '../pages/student/postgraduate_exam_enroll/list.html', 1, NULL, '1', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (90, '早读列表', '2', '41', NULL, '../pages/student/early_reading/list.html', 1, NULL, '1', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (91, '新闻管理', '1', '1', NULL, '', 2, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (92, '新闻列表', '2', '91', NULL, '../pages/manager/base_new/list.html', 2, NULL, '4', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (93, '科研管理', '1', '1', NULL, NULL, 1, NULL, '2', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (94, '学习资讯', '1', '1', NULL, NULL, 1, NULL, '2', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (95, '考研信息', '1', '1', NULL, NULL, 1, NULL, '2', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (96, '学生管理', '1', '1', NULL, NULL, 1, NULL, '2', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (97, '科研项目发布', '2', '93', NULL, '../pages/teacher/scient_subject/list.html', 1, NULL, '2', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (99, '学习资讯发布', '2', '94', NULL, '../pages/teacher/base_new/list.html', 1, NULL, '2', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (101, '学生管理', '2', '96', NULL, '../pages/teacher/base_user/list.html', 1, NULL, '2', NULL, NULL, 'normal');
-INSERT INTO `base_menu` VALUES (102, '考研信息发布', '2', '95', NULL, '../pages/teacher/postgraduate_exam/list.html', 1, NULL, '2', NULL, NULL, 'normal');
-COMMIT;
+INSERT INTO `base_menu` VALUES ('1', '系统设置', '1', '0', null, '', '999', '', '4', '', '', 'normal');
+INSERT INTO `base_menu` VALUES ('3', '子菜单一', '2', '1', null, '../', '111', 'fa-pie-chart', '1', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('5', '菜单设置', '2', '1', null, '../pages/manager/system/menu.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('33', '学生成绩', '1', '1', null, null, '3', null, '1', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('34', '心里测试', '1', '1', null, null, '1', null, '1', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('35', '科研管理', '1', '1', null, null, '1', null, '1', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('36', '新闻推荐', '1', '1', null, null, '1', null, '1', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('37', '考勤管理', '1', '1', null, null, '1', null, '1', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('38', '家园互动', '1', '1', null, null, '1', null, '1', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('39', '奖学金', '1', '1', null, null, '1', null, '1', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('40', '考研管理', '1', '1', null, null, '1', null, '1', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('41', '早读管理', '1', '1', null, null, '1', null, '1', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('43', '学校管理', '1', '1', null, null, '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('45', '学校列表', '2', '43', null, '../pages/manager/base_school/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('46', '学院管理', '2', '43', null, '../pages/manager/base_college/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('47', '班级管理', '2', '43', null, '../pages/manager/base_class/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('48', '奖学金管理', '1', '1', null, null, '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('49', '心理测试', '1', '1', null, null, '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('50', '考研管理', '1', '1', null, null, '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('51', '早读管理', '1', '1', null, null, '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('52', '用户管理', '1', '1', null, null, '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('53', '课程管理', '1', '1', null, null, '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('54', '签到管理', '1', '1', null, null, '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('55', '数据字典', '1', '1', null, null, '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('56', '奖学金项目', '2', '48', null, '../pages/manager/scholarship/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('57', '奖学金分配', '2', '48', null, '../pages/manager/scholarship_distribution/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('58', '奖学金申请', '2', '48', null, '../pages/manager/scholarship_apply_record/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('59', '科研管理', '1', '1', null, null, '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('60', '测试项目', '2', '49', null, '../pages/manager/psy_test_subject/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('61', '测试题目', '2', '49', null, '../pages/manager/psy_test_item/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('62', '参考回答', '2', '49', null, '../pages/manager/psy_test_answer_consult/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('63', '预置答案', '2', '49', null, '../pages/manager/psy_test_answer/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('64', '作答记录', '2', '49', null, '../pages/manager/psy_test_answer_record/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('65', '早读记录', '2', '51', null, '../pages/manager/early_reading/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('66', '用户列表', '2', '52', null, '../pages/manager/base_user/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('67', '用户类型', '2', '52', null, '../pages/manager/base_user_type/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('68', '基础类型字典', '2', '55', null, '../pages/manager/base_type/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('69', '基础状态字典', '2', '55', null, '../pages/manager/base_state/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('70', '功能模块字典', '2', '55', null, '../pages/manager/base_module/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('71', '成绩管理', '2', '53', null, '../pages/manager/base_score/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('72', '课程管理', '2', '53', null, '../pages/manager/base_course/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('73', '邮件管理', '2', '52', null, '../pages/manager/base_message/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('74', '考研项目', '2', '50', null, '../pages/manager/postgraduate_exam/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('75', '考研预报名', '2', '50', null, '../pages/manager/postgraduate_exam_enroll/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('76', '签到项目', '2', '54', null, '../pages/manager/attendance/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('77', '签到记录', '2', '54', null, '../pages/manager/attendance_record/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('78', '科研项目管理', '2', '59', null, '../pages/manager/scient_subject/list.html', '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('79', '成绩查询', '2', '33', null, '../pages/student/base_score/list.html', '1', null, '1', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('80', '课程查询', '2', '33', null, '../pages/student/base_course/list.html', '1', null, '1', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('81', '题目列表', '2', '34', null, '../pages/student/psy_test/list.html', '1', null, '1', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('82', '我的测试', '2', '34', null, null, '1', null, '1', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('83', '项目列表', '2', '35', null, '../pages/student/scient_subject/list.html', '1', null, '1', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('84', '热门推荐', '2', '36', null, '../pages/student/new/list.html', '1', null, '1', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('85', '我的考勤', '2', '37', null, '../pages/student/attendance_record/list.html', '1', null, '1', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('86', '奖学金列表', '2', '39', null, '../pages/student/scholarship/list.html', '1', null, '1', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('87', '我的申请', '2', '39', null, '../pages/student/scholarship_apply_record/list.html', '1', null, '1', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('88', '考研项目', '2', '40', null, '../pages/student/postgraduate_exam/list.html', '1', null, '1', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('89', '我的报名', '2', '40', null, '../pages/student/postgraduate_exam_enroll/list.html', '1', null, '1', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('90', '早读列表', '2', '41', null, '../pages/student/early_reading/list.html', '1', null, '1', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('91', '新闻管理', '1', '1', null, '', '2', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('92', '新闻列表', '2', '91', null, '../pages/manager/base_new/list.html', '2', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('93', '科研管理', '1', '1', null, null, '1', null, '2', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('94', '学习资讯', '1', '1', null, null, '1', null, '2', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('95', '考研信息', '1', '1', null, null, '1', null, '2', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('96', '学生管理', '1', '1', null, null, '1', null, '2', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('97', '科研项目发布', '2', '93', null, '../pages/teacher/scient_subject/list.html', '1', null, '2', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('99', '学习资讯发布', '2', '94', null, '../pages/teacher/base_new/list.html', '1', null, '2', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('101', '学生管理', '2', '96', null, '../pages/teacher/base_user/list.html', '1', null, '2', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('102', '考研信息发布', '2', '95', null, '../pages/teacher/postgraduate_exam/list.html', '1', null, '2', null, null, 'normal');
 
 -- ----------------------------
 -- Table structure for base_message
@@ -316,6 +355,10 @@ CREATE TABLE `base_message` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
+-- Records of base_message
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for base_module
 -- ----------------------------
 DROP TABLE IF EXISTS `base_module`;
@@ -333,13 +376,11 @@ CREATE TABLE `base_module` (
 -- ----------------------------
 -- Records of base_module
 -- ----------------------------
-BEGIN;
-INSERT INTO `base_module` VALUES (1, NULL, 'module1', NULL, '1573224661', NULL, 'normal');
-INSERT INTO `base_module` VALUES (2, NULL, NULL, NULL, '1573401476', NULL, 'normal');
-INSERT INTO `base_module` VALUES (3, NULL, NULL, NULL, '1573401482', NULL, 'normal');
-INSERT INTO `base_module` VALUES (4, NULL, NULL, NULL, '1573401496', NULL, 'normal');
-INSERT INTO `base_module` VALUES (5, NULL, NULL, NULL, '1573401513', NULL, 'normal');
-COMMIT;
+INSERT INTO `base_module` VALUES ('1', null, 'module1', null, '1573224661', null, 'normal');
+INSERT INTO `base_module` VALUES ('2', null, null, null, '1573401476', null, 'normal');
+INSERT INTO `base_module` VALUES ('3', null, null, null, '1573401482', null, 'normal');
+INSERT INTO `base_module` VALUES ('4', null, null, null, '1573401496', null, 'normal');
+INSERT INTO `base_module` VALUES ('5', null, null, null, '1573401513', null, 'normal');
 
 -- ----------------------------
 -- Table structure for base_new
@@ -362,9 +403,7 @@ CREATE TABLE `base_new` (
 -- ----------------------------
 -- Records of base_new
 -- ----------------------------
-BEGIN;
-INSERT INTO `base_new` VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, '1573401566', NULL, 'delete');
-COMMIT;
+INSERT INTO `base_new` VALUES ('1', null, null, null, null, null, null, '1573401566', null, 'delete');
 
 -- ----------------------------
 -- Table structure for base_school
@@ -388,21 +427,19 @@ CREATE TABLE `base_school` (
 -- ----------------------------
 -- Records of base_school
 -- ----------------------------
-BEGIN;
-INSERT INTO `base_school` VALUES (1, 'dsads', '描述', '地址', '校训', 'logo\'', NULL, '123', NULL, NULL, 'delete');
-INSERT INTO `base_school` VALUES (2, '2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'delete');
-INSERT INTO `base_school` VALUES (3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1572186766', NULL, 'delete');
-INSERT INTO `base_school` VALUES (4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1572186779', NULL, 'delete');
-INSERT INTO `base_school` VALUES (5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1572186784', NULL, 'delete');
-INSERT INTO `base_school` VALUES (6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1572186788', NULL, 'delete');
-INSERT INTO `base_school` VALUES (7, '学校名称', '描述', 'xiaozhi', 'xiaozun', NULL, NULL, NULL, '1572186857', NULL, 'delete');
-INSERT INTO `base_school` VALUES (8, '学校名称', '描述', '校址', '校训', NULL, NULL, '10/30/2019', '1572187068', NULL, 'delete');
-INSERT INTO `base_school` VALUES (9, 'fdasf', 'dasdf', 'dsadsa', 'dsad', NULL, NULL, '10/29/2019', '1572187095', NULL, 'delete');
-INSERT INTO `base_school` VALUES (10, 'dsad', NULL, NULL, NULL, NULL, NULL, NULL, '1572188526', NULL, 'delete');
-INSERT INTO `base_school` VALUES (11, '广东海洋大学', '描述', '校址', '校训', 'logo', NULL, '10/31/2019', '1572188747', NULL, 'normal');
-INSERT INTO `base_school` VALUES (12, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1572189176', NULL, 'delete');
-INSERT INTO `base_school` VALUES (13, 'asdsad', 'fdafd', NULL, NULL, NULL, NULL, NULL, '1573144446', NULL, 'normal');
-COMMIT;
+INSERT INTO `base_school` VALUES ('1', 'dsads', '描述', '地址', '校训', 'logo\'', null, '123', null, null, 'delete');
+INSERT INTO `base_school` VALUES ('2', '2', null, null, null, null, null, null, null, null, 'delete');
+INSERT INTO `base_school` VALUES ('3', null, null, null, null, null, null, null, '1572186766', null, 'delete');
+INSERT INTO `base_school` VALUES ('4', null, null, null, null, null, null, null, '1572186779', null, 'delete');
+INSERT INTO `base_school` VALUES ('5', null, null, null, null, null, null, null, '1572186784', null, 'delete');
+INSERT INTO `base_school` VALUES ('6', null, null, null, null, null, null, null, '1572186788', null, 'delete');
+INSERT INTO `base_school` VALUES ('7', '学校名称', '描述', 'xiaozhi', 'xiaozun', null, null, null, '1572186857', null, 'delete');
+INSERT INTO `base_school` VALUES ('8', '学校名称', '描述', '校址', '校训', null, null, '10/30/2019', '1572187068', null, 'delete');
+INSERT INTO `base_school` VALUES ('9', 'fdasf', 'dasdf', 'dsadsa', 'dsad', null, null, '10/29/2019', '1572187095', null, 'delete');
+INSERT INTO `base_school` VALUES ('10', 'dsad', null, null, null, null, null, null, '1572188526', null, 'delete');
+INSERT INTO `base_school` VALUES ('11', '广东海洋大学', '描述', '校址', '校训', 'logo', null, '10/31/2019', '1572188747', null, 'normal');
+INSERT INTO `base_school` VALUES ('12', null, null, null, null, null, null, null, '1572189176', null, 'delete');
+INSERT INTO `base_school` VALUES ('13', 'asdsad', 'fdafd', null, null, null, null, null, '1573144446', null, 'normal');
 
 -- ----------------------------
 -- Table structure for base_score
@@ -425,9 +462,7 @@ CREATE TABLE `base_score` (
 -- ----------------------------
 -- Records of base_score
 -- ----------------------------
-BEGIN;
-INSERT INTO `base_score` VALUES (1, '1', NULL, '7', '7', NULL, NULL, '1573224245', NULL, 'delete');
-COMMIT;
+INSERT INTO `base_score` VALUES ('1', '1', null, '7', '7', null, null, '1573224245', null, 'delete');
 
 -- ----------------------------
 -- Table structure for base_state
@@ -446,6 +481,10 @@ CREATE TABLE `base_state` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Records of base_state
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for base_type
 -- ----------------------------
 DROP TABLE IF EXISTS `base_type`;
@@ -460,6 +499,10 @@ CREATE TABLE `base_type` (
   `del` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of base_type
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for base_user
@@ -492,12 +535,10 @@ CREATE TABLE `base_user` (
 -- ----------------------------
 -- Records of base_user
 -- ----------------------------
-BEGIN;
-INSERT INTO `base_user` VALUES (7, '456', '456', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2', '教师', NULL, NULL, '1572004895', NULL, 'normal');
-INSERT INTO `base_user` VALUES (8, 'admin', 'admin', '系统管理员', '134126', 'email', '联系地址', 'wchat', 'qq', '26', '', 'hello', '地区', '4', '系统管理员', NULL, NULL, NULL, NULL, 'normal');
-INSERT INTO `base_user` VALUES (9, '123', '123', '周先生', '电话', 'email', '地址', '13413739238923', 'qq号', '21', NULL, '签名', '广东', '1', '学生', NULL, NULL, '1572147442', NULL, 'normal');
-INSERT INTO `base_user` VALUES (12, '789', '789', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1', '学生', NULL, NULL, '1572150642', NULL, 'normal');
-COMMIT;
+INSERT INTO `base_user` VALUES ('7', '456', '456', null, null, null, null, null, null, null, null, null, null, '2', '教师', null, null, '1572004895', null, 'normal');
+INSERT INTO `base_user` VALUES ('8', 'admin', 'admin', '系统管理员', '134126', 'email', '联系地址', 'wchat', 'qq', '26', '', 'hello', '地区', '4', '系统管理员', null, null, null, null, 'normal');
+INSERT INTO `base_user` VALUES ('9', '123', '123', '周先生', '电话', 'email', '地址', '13413739238923', 'qq号', '21', null, '签名', '广东', '1', '学生', null, null, '1572147442', null, 'normal');
+INSERT INTO `base_user` VALUES ('12', '789', '789', null, null, null, null, null, null, null, null, null, null, '1', '学生', null, null, '1572150642', null, 'normal');
 
 -- ----------------------------
 -- Table structure for base_user_type
@@ -517,12 +558,10 @@ CREATE TABLE `base_user_type` (
 -- ----------------------------
 -- Records of base_user_type
 -- ----------------------------
-BEGIN;
-INSERT INTO `base_user_type` VALUES (1, '1', NULL, '学生', NULL, NULL, 'normal');
-INSERT INTO `base_user_type` VALUES (2, '2', NULL, '教师', NULL, NULL, 'normal');
-INSERT INTO `base_user_type` VALUES (3, '3', NULL, '管理员', NULL, NULL, 'normal');
-INSERT INTO `base_user_type` VALUES (4, '4', NULL, '系统管理员', NULL, NULL, 'normal');
-COMMIT;
+INSERT INTO `base_user_type` VALUES ('1', '1', null, '学生', null, null, 'normal');
+INSERT INTO `base_user_type` VALUES ('2', '2', null, '教师', null, null, 'normal');
+INSERT INTO `base_user_type` VALUES ('3', '3', null, '管理员', null, null, 'normal');
+INSERT INTO `base_user_type` VALUES ('4', '4', null, '系统管理员', null, null, 'normal');
 
 -- ----------------------------
 -- Table structure for early_reading
@@ -542,6 +581,10 @@ CREATE TABLE `early_reading` (
   `del` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of early_reading
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for postgraduate_exam
@@ -568,9 +611,7 @@ CREATE TABLE `postgraduate_exam` (
 -- ----------------------------
 -- Records of postgraduate_exam
 -- ----------------------------
-BEGIN;
-INSERT INTO `postgraduate_exam` VALUES (1, 'dsadsad', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1573222572', NULL, 'normal');
-COMMIT;
+INSERT INTO `postgraduate_exam` VALUES ('1', 'dsadsad', null, null, null, null, null, null, null, null, null, '1573222572', null, 'normal');
 
 -- ----------------------------
 -- Table structure for postgraduate_exam_enroll
@@ -591,6 +632,10 @@ CREATE TABLE `postgraduate_exam_enroll` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
+-- Records of postgraduate_exam_enroll
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for psy_test_answer
 -- ----------------------------
 DROP TABLE IF EXISTS `psy_test_answer`;
@@ -598,12 +643,21 @@ CREATE TABLE `psy_test_answer` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `subject_id` int(11) DEFAULT NULL COMMENT '测试项目ID',
   `item_id` int(11) DEFAULT NULL COMMENT '题目id',
-  `answer` varchar(255) DEFAULT NULL COMMENT '回答',
-  `create_time` varchar(255) DEFAULT NULL COMMENT '创建时间',
+  `answer` varchar(255) CHARACTER SET utf8 DEFAULT NULL COMMENT '回答选项',
+  `score` int(255) DEFAULT NULL COMMENT '得分',
+  `create_time` varchar(255) CHARACTER SET utf8 DEFAULT NULL COMMENT '创建时间',
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   `del` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of psy_test_answer
+-- ----------------------------
+INSERT INTO `psy_test_answer` VALUES ('1', '1', '1', '选项1', '3', '1575811205', null, 'normal');
+INSERT INTO `psy_test_answer` VALUES ('2', '1', '1', '选项2', '2', '1575811638', null, 'normal');
+INSERT INTO `psy_test_answer` VALUES ('3', '1', '1', '选项3', '1', '1575811643', null, 'normal');
+INSERT INTO `psy_test_answer` VALUES ('4', '1', '1', '选项4', '4', '1575811647', null, 'normal');
 
 -- ----------------------------
 -- Table structure for psy_test_answer_consult
@@ -622,6 +676,10 @@ CREATE TABLE `psy_test_answer_consult` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
+-- Records of psy_test_answer_consult
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for psy_test_answer_record
 -- ----------------------------
 DROP TABLE IF EXISTS `psy_test_answer_record`;
@@ -629,13 +687,19 @@ CREATE TABLE `psy_test_answer_record` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `user_id` int(11) DEFAULT NULL COMMENT '用户id',
   `subject_id` int(11) DEFAULT NULL COMMENT '测试项目id',
+  `answers` varchar(255) DEFAULT NULL,
   `state` varchar(255) DEFAULT NULL COMMENT '状态',
   `describe` varchar(255) DEFAULT NULL COMMENT '描述',
   `create_time` varchar(255) DEFAULT NULL COMMENT '创建时间',
   `remark` varchar(255) DEFAULT NULL,
   `del` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of psy_test_answer_record
+-- ----------------------------
+INSERT INTO `psy_test_answer_record` VALUES ('7', '9', '1', '[{\"item_id\":1,\"answer_id\":\"4\"}]', null, null, '1575819960', null, 'normal');
 
 -- ----------------------------
 -- Table structure for psy_test_item
@@ -657,9 +721,26 @@ CREATE TABLE `psy_test_item` (
 -- ----------------------------
 -- Records of psy_test_item
 -- ----------------------------
-BEGIN;
-INSERT INTO `psy_test_item` VALUES (1, 1, NULL, '123', NULL, NULL, '1573221868', NULL, 'normal');
-COMMIT;
+INSERT INTO `psy_test_item` VALUES ('1', '1', '1', '123', null, null, '1573221868', null, 'normal');
+
+-- ----------------------------
+-- Table structure for psy_test_item_type
+-- ----------------------------
+DROP TABLE IF EXISTS `psy_test_item_type`;
+CREATE TABLE `psy_test_item_type` (
+  `type_id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(255) DEFAULT NULL,
+  `describe` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `create_time` varchar(255) DEFAULT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  `del` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`type_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of psy_test_item_type
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for psy_test_subject
@@ -681,10 +762,8 @@ CREATE TABLE `psy_test_subject` (
 -- ----------------------------
 -- Records of psy_test_subject
 -- ----------------------------
-BEGIN;
-INSERT INTO `psy_test_subject` VALUES (1, '标题', '详细', NULL, NULL, NULL, '1573221571', NULL, 'normal');
-INSERT INTO `psy_test_subject` VALUES (2, '2323', '的撒的撒的', NULL, NULL, NULL, NULL, NULL, 'normal');
-COMMIT;
+INSERT INTO `psy_test_subject` VALUES ('1', '标题', '详细', null, null, null, '1573221571', null, 'normal');
+INSERT INTO `psy_test_subject` VALUES ('2', '2323', '的撒的撒的', null, null, null, null, null, 'normal');
 
 -- ----------------------------
 -- Table structure for scholarship
@@ -708,10 +787,8 @@ CREATE TABLE `scholarship` (
 -- ----------------------------
 -- Records of scholarship
 -- ----------------------------
-BEGIN;
-INSERT INTO `scholarship` VALUES (1, 'dsad', 'dsad', NULL, NULL, NULL, NULL, NULL, '1573054575', NULL, 'delete');
-INSERT INTO `scholarship` VALUES (2, '323fdasfdasds大洒店', NULL, NULL, NULL, NULL, NULL, NULL, '1573220098', NULL, 'normal');
-COMMIT;
+INSERT INTO `scholarship` VALUES ('1', 'dsad', 'dsad', null, null, null, null, null, '1573054575', null, 'delete');
+INSERT INTO `scholarship` VALUES ('2', '323fdasfdasds大洒店', null, null, null, null, null, null, '1573220098', null, 'normal');
 
 -- ----------------------------
 -- Table structure for scholarship_apply_record
@@ -735,10 +812,8 @@ CREATE TABLE `scholarship_apply_record` (
 -- ----------------------------
 -- Records of scholarship_apply_record
 -- ----------------------------
-BEGIN;
-INSERT INTO `scholarship_apply_record` VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1573054794', NULL, 'delete');
-INSERT INTO `scholarship_apply_record` VALUES (2, 2, 'dsadsa', '9', NULL, NULL, NULL, NULL, '1573364303', NULL, 'normal');
-COMMIT;
+INSERT INTO `scholarship_apply_record` VALUES ('1', null, null, null, null, null, null, null, '1573054794', null, 'delete');
+INSERT INTO `scholarship_apply_record` VALUES ('2', '2', 'dsadsa', '9', null, null, null, null, '1573364303', null, 'normal');
 
 -- ----------------------------
 -- Table structure for scholarship_distribution
@@ -761,9 +836,7 @@ CREATE TABLE `scholarship_distribution` (
 -- ----------------------------
 -- Records of scholarship_distribution
 -- ----------------------------
-BEGIN;
-INSERT INTO `scholarship_distribution` VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, '1573054773', NULL, 'delete');
-COMMIT;
+INSERT INTO `scholarship_distribution` VALUES ('1', null, null, null, null, null, null, '1573054773', null, 'delete');
 
 -- ----------------------------
 -- Table structure for scient_subject
@@ -789,9 +862,5 @@ CREATE TABLE `scient_subject` (
 -- ----------------------------
 -- Records of scient_subject
 -- ----------------------------
-BEGIN;
-INSERT INTO `scient_subject` VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1573057158', NULL, 'delete');
-INSERT INTO `scient_subject` VALUES (2, '科研名称', '发布者', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1573312216', NULL, 'normal');
-COMMIT;
-
-SET FOREIGN_KEY_CHECKS = 1;
+INSERT INTO `scient_subject` VALUES ('1', null, null, null, null, null, null, null, null, null, '1573057158', null, 'delete');
+INSERT INTO `scient_subject` VALUES ('2', '科研名称', '发布者', null, null, null, null, null, null, null, '1573312216', null, 'normal');

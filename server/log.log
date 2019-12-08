@@ -20520,3 +20520,19 @@ java.lang.Error: Unresolved compilation problems:
 	at com.jfinal.server.Scanner$1.run(Scanner.java:101)
 	at java.util.TimerThread.mainLoop(Timer.java:555)
 	at java.util.TimerThread.run(Timer.java:505)
+
+2019-12-08 19:23:35
+[ERROR]-[Thread: main]-[com.jfinal.kit.LogKit.error()]: port: 8888 already in use!
+java.lang.IllegalStateException: port: 8888 already in use!
+	at com.jfinal.server.JettyServer.doStart(JettyServer.java:87)
+	at com.jfinal.server.JettyServer.start(JettyServer.java:70)
+	at com.jfinal.core.JFinal.start(JFinal.java:162)
+	at com.demo.common.SystemConfig.main(SystemConfig.java:102)
+
+2019-12-08 22:42:49
+[ERROR]-[Thread: main]-[com.jfinal.kit.LogKit.error()]: port: 8888 already in use!
+java.lang.IllegalStateException: port: 8888 already in use!
+	at com.jfinal.server.JettyServer.doStart(JettyServer.java:87)
+	at com.jfinal.server.JettyServer.start(JettyServer.java:70)
+	at com.jfinal.core.JFinal.start(JFinal.java:162)
+	at com.demo.common.SystemConfig.main(SystemConfig.java:102)

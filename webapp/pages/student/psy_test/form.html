@@ -85,6 +85,7 @@
 <script type="text/javascript" src="/dist/toastr/toastr.js"></script>
 
 <script type="text/javascript">
+
   //业务URI
   var ROOT_URI = URI_PSY_TEST_SUBJECT;
 
@@ -271,11 +272,7 @@
   }
 
   var submit = function(){
-    // if (getQueryVariable("id")) {
-    //     update();
-    // }else{
-    //   add();
-    // }
+    window.location.href = './test.html?id='+getQueryVariable("id");
   }
 
   var goBack = function(){
