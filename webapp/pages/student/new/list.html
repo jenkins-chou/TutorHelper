@@ -28,109 +28,9 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body id="container_main" class="hold-transition skin-blue sidebar-mini">
 
-  <div class="box box-widget">
-              <div class="box-header with-border">
-                <div class="user-block">
-                  <img class="img-circle" src="/dist/img/user1-128x128.jpg" alt="User Image">
-                  <span class="username"><a href="#">Jonathan Burke Jr.</a></span>
-                  <span class="description">Shared publicly - 7:30 PM Today</span>
-                </div>
-                <!-- /.user-block -->
-                <div class="box-tools">
-                  <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="" data-original-title="Mark as read">
-                    <i class="fa fa-circle-o"></i></button>
-                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div>
-                <!-- /.box-tools -->
-              </div>
-              <!-- /.box-header -->
-              <div class="box-body">
-                <!-- post text -->
-                <p>Far far away, behind the word mountains, far from the
-                  countries Vokalia and Consonantia, there live the blind
-                  texts. Separated they live in Bookmarksgrove right at</p>
 
-                <p>the coast of the Semantics, a large language ocean.
-                  A small river named Duden flows by their place and supplies
-                  it with the necessary regelialia. It is a paradisematic
-                  country, in which roasted parts of sentences fly into
-                  your mouth.</p>
-
-                <!-- Attachment -->
-                <div class="attachment-block clearfix">
-                  <img class="attachment-img" src="/dist/img/photo1.png" alt="Attachment Image">
-
-                  <div class="attachment-pushed">
-                    <h4 class="attachment-heading"><a href="http://www.lipsum.com/">Lorem ipsum text generator</a></h4>
-
-                    <div class="attachment-text">
-                      Description about the attachment can be placed here.
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry... <a href="#">more</a>
-                    </div>
-                    <!-- /.attachment-text -->
-                  </div>
-                  <!-- /.attachment-pushed -->
-                </div>
-                <!-- /.attachment-block -->
-
-              </div>
-              <!-- /.box-body -->
-  </div>
-
-  <div class="box box-widget">
-              <div class="box-header with-border">
-                <div class="user-block">
-                  <img class="img-circle" src="/dist/img/user1-128x128.jpg" alt="User Image">
-                  <span class="username"><a href="#">Jonathan Burke Jr.</a></span>
-                  <span class="description">Shared publicly - 7:30 PM Today</span>
-                </div>
-                <!-- /.user-block -->
-                <div class="box-tools">
-                  <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="" data-original-title="Mark as read">
-                    <i class="fa fa-circle-o"></i></button>
-                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div>
-                <!-- /.box-tools -->
-              </div>
-              <!-- /.box-header -->
-              <div class="box-body">
-                <!-- post text -->
-                <p>Far far away, behind the word mountains, far from the
-                  countries Vokalia and Consonantia, there live the blind
-                  texts. Separated they live in Bookmarksgrove right at</p>
-
-                <p>the coast of the Semantics, a large language ocean.
-                  A small river named Duden flows by their place and supplies
-                  it with the necessary regelialia. It is a paradisematic
-                  country, in which roasted parts of sentences fly into
-                  your mouth.</p>
-
-                <!-- Attachment -->
-                <div class="attachment-block clearfix">
-                  <img class="attachment-img" src="/dist/img/photo1.png" alt="Attachment Image">
-
-                  <div class="attachment-pushed">
-                    <h4 class="attachment-heading"><a href="http://www.lipsum.com/">Lorem ipsum text generator</a></h4>
-
-                    <div class="attachment-text">
-                      Description about the attachment can be placed here.
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry... <a href="#">more</a>
-                    </div>
-                    <!-- /.attachment-text -->
-                  </div>
-                  <!-- /.attachment-pushed -->
-                </div>
-                <!-- /.attachment-block -->
-
-              </div>
-              <!-- /.box-body -->
-  </div>
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
@@ -145,5 +45,202 @@
 <script src="/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/dist/js/demo.js"></script>
+<script type="text/javascript" src="/pages/base/base.js"></script>
+<script type="text/javascript" src="/dist/toastr/toastr.js"></script>
+<script type="text/javascript">
+
+  //仅改此处即可 ----------------------------------||
+
+  var ROOT_URI = URI_BASE_NEW;
+
+  /**
+    以下部分不用修改
+  **/
+  var formHtml = "form.html";
+
+  var getListUri = server_url + ROOT_URI + URI_BASE_GET_ALL;
+  var deleteUri = server_url + ROOT_URI + URI_BASE_DELETE;
+  var searchUri = server_url + ROOT_URI + URI_BASE_SEARCH;
+  var getTableInfoUri = server_url + ROOT_URI + URI_BASE_GET_TABLEINFO;
+
+  var tableInfo;
+
+  $(function(){
+    getTableInfo();
+  });
+
+  var getTableInfo = function(){
+    console.log("getTableInfo");
+    $.ajax({
+      type: "post",
+      dataType: "json",
+      url: getTableInfoUri,
+      data: {},
+      success: function (data) {       //data回调信息
+      if (data != "" && data.code == 200) {
+        // console.log("getTableInfo");
+        console.log(data);
+        tableInfo = data;
+        resetTable(tableInfo.column_comment);
+        getAllList();
+      }else{
+        //toastr.error("操作失败","温馨提示");
+      }
+      },
+      complete:function(){
+        //console.log('complete');
+      }
+    });
+  }
+
+  var resetTable =  function (table){
+    console.log(table);
+    var container = $("#list");
+    var html = "<tr><td>序号</td>";
+    if (table != null && table.length >0) {
+      for (var i = 0; i < table.length; i++) {
+        if (tableInfo.column_filter[i] != 'hidden') {
+          html += "<td>"+table[i]+"</td>";
+        }
+      }
+    }
+    html += "<td>操作</td></tr>";
+    container.html(html);
+  }
+
+  var getAllList = function(){
+
+    $.ajax({
+      type: "post",
+      dataType: "json",
+      url: getListUri,
+      data: {},
+      success: function (data) {       //data回调信息
+      if (data != "" && data.code == 200) {
+        //console.log(data);
+        showList(data.data);
+      }else{
+        //toastr.error("操作失败","温馨提示");
+      }
+      },
+      complete:function(){
+        //console.log('complete');
+      }
+    });
+  }
+
+  function showList(data){
+    console.log(data);
+    var container = $("#container_main");
+    if (data == null || data.length <=0) {
+      return;
+    }
+    for (var i = 0; i < data.length; i++) {
+      container.append(getListHtml(data[i],i+1));
+    }
+  }
+
+  var getListHtml = function(item,index){
+      var listHtml = '<div class="box box-widget">'+
+              '<div class="box-header with-border">'+
+                '<div class="user-block">'+
+                  '<img class="img-circle" src="/dist/img/user1-128x128.jpg" alt="User Image">'+
+                  '<span class="username"><a href="#">管理员</a></span>'+
+                  '<span class="description">'+item.create_time+'</span>'+
+                '</div>'+
+                '<div class="box-tools">'+
+                  '<button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="" data-original-title="Mark as read">'+
+                    '<i class="fa fa-circle-o"></i></button>'+
+                  '<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>'+
+                  '</button>'+
+                  '<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>'+
+                '</div>'+
+              '</div>'+
+              '<div class="box-body">'+
+                '<p><a href="'+item.link+'">源链接：'+item.link+'</a></p>'+
+                '<div class="attachment-block clearfix">'+
+                  '<img class="attachment-img" src="/dist/img/photo1.png" alt="Attachment Image">'+
+
+                  '<div class="attachment-pushed">'+
+                    '<h4 class="attachment-heading"><a>'+item.abstract+'</a></h4>'+
+
+                    '<div class="attachment-text">'+item.detail+'<a href="#"></a>'+
+                    '</div>'+
+                  '</div>'+
+                '</div>'+
+              '</div>'+
+  '</div>';
+        return listHtml;
+  }
+
+  function deleteObject(object,id){
+    $.ajax({
+      type: "post",
+      dataType: "json",
+      url: deleteUri,
+      data: {id:id},
+      success: function (data) {       //data回调信息
+      if (data != "" && data.code == 200) {
+        //getAllList();
+        toastr.success("删除成功","温馨提示");
+        $(object).parent().parent().remove();
+      }else{
+        toastr.error("操作失败","温馨提示");
+      }
+      },
+      complete:function(){
+        //console.log('complete');
+      }
+    });
+  }
+
+  function getSearchKey(){
+      var key = $("#table_search").val();
+      console.log(key);
+      if (key == null || key == undefined || key == '') {
+        //toastr.error("请输入关键字","温馨提示");
+        resetTable(tableInfo.column_comment);
+        getAllList();
+        return;
+        }else{
+          search(key);
+        }
+  }
+
+  function search(key){
+    if (tableInfo == null || tableInfo == undefined) {
+      toastr.error("页面初始化失败","温馨提示");
+      getTableInfo();
+      return;
+    }
+
+    $.ajax({
+      type: "post",
+      dataType: "json",
+      url: searchUri,
+      data: {key:key},
+      success: function (data) {       //data回调信息
+      if (data != "" && data.code == 200) {
+        //getAllList();
+        resetTable(tableInfo.column_comment);
+        showList(data.data);
+      }else{
+        toastr.warning("无记录","温馨提示");
+      }
+      },
+      complete:function(){
+        //console.log('complete');
+      }
+    });
+  }
+
+  function add(){
+    window.location.href = formHtml;
+  }
+
+  function modify(id){
+    window.location.href = formHtml+"?id="+id;
+  }
+</script>
 </body>
 </html>

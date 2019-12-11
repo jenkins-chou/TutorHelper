@@ -44,7 +44,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="" onclick="showStatics()" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>T</b>UTOR</span>
       <!-- logo for regular state and mobile devices -->
@@ -360,6 +360,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     initWindow();
     readLocal();
     getModuleList();
+    showStatics();
   }
 
   function initWindow(){
@@ -393,7 +394,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
       }
     }
-}
+  }
+
+  var showStatics = function(){
+
+    $('#m').attr("src","../pages/manager/statistics/index.html");
+  }
+
+
 </script>
 </body>
 </html>
