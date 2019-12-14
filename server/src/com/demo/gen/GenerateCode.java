@@ -9,7 +9,9 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.DatabaseMetaData;
@@ -40,66 +42,68 @@ public class GenerateCode {
 		
 		//System.out.println(getUpper("postgraduate_exam"));
 	}
-	public static void getAllTable() throws ClassNotFoundException, SQLException{
+	public static List<String> getAllTable() throws ClassNotFoundException, SQLException{
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/tutor_helper?user=root&password=root");
-		getTableNameByCon(conn);
+		return getTableNameByCon(conn);
 	}
-	public static void getTableNameByCon(Connection con) {
+	public static List<String> getTableNameByCon(Connection con) {
 		try {
 		DatabaseMetaData meta = (DatabaseMetaData) con.getMetaData();
 		ResultSet rs = (ResultSet) meta.getTables(null, null, null,new String[] { "TABLE" });
+		List<String> tables = new ArrayList();
 		while (rs.next()) {
-		//System.out.println("������" + rs.getString(3));
-		//System.out.println("�������û�����" + rs.getString(2));
-		
 			if(rs.getString(3).equals("base_menu")||
 					rs.getString(3).equals("base_user")||
 					rs.getString(3).equals("base_user_type")){
 				
 			}else{
 				//genController(rs.getString(3));
-				genURL(rs.getString(3));
+				//genModel(rs.getString(3));
+				//genURL(rs.getString(3));
 			}
-			//genModel(rs.getString(3));
+			
+			tables.add(rs.getString(3));
+			
 		}
 		con.close();
+		return tables;
 		} catch (Exception e) {
 		try {
 		con.close();
+		return null;
 		} catch (SQLException e1) {
 		// TODO Auto-generated catch block
 		e1.printStackTrace();
+		return null;
 		}
-		// TODO Auto-generated catch block
-		e.printStackTrace();
 		}
 	}
 	
 	public static void genController(String tableName){
-		// step1 ����freeMarker����ʵ��
+		// step1 锟斤拷锟斤拷freeMarker锟斤拷锟斤拷实锟斤拷
         Configuration configuration = new Configuration();
         Writer out = null;
         try {
-            // step2 ��ȡģ��·��
+            // step2 锟斤拷取模锟斤拷路锟斤拷
             configuration.setDirectoryForTemplateLoading(new File(TEMPLATE_CONTROLLER_PATH));
-            // step3 ��������ģ��
+            // step3 锟斤拷锟斤拷锟斤拷锟斤拷模锟斤拷
             Map<String, Object> dataMap = new HashMap<String, Object>();
             String className = getUpper(tableName)+"Controller";
             dataMap.put("classPath", CONTROLLER_PACKAGE_PATH);
             dataMap.put("className", className);
             dataMap.put("tableName", tableName);
             dataMap.put("modelName", getUpper(tableName)+"Model");
-            // step4 ����ģ���ļ�
+            // step4 锟斤拷锟斤拷模锟斤拷锟侥硷拷
             Template template = configuration.getTemplate("ControllerTemplate.ftl");
-            // step5 ��������
+            // step5 锟斤拷锟斤拷锟斤拷锟斤拷
             File docFile = new File(CONTROLLER_CLASS_PATH + "\\" + className+".java");
             out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(docFile)));
-            // step6 ����ļ�
+            // step6 锟斤拷锟斤拷募锟�
             template.process(dataMap, out);
             ;
             System.out.println("me.add(\""+tableName+"\","+className+".class)");
-            //System.out.println("----------------->"+className+".java �ļ������ɹ� !");
+            //System.out.println("----------------->"+className+".java 锟侥硷拷锟斤拷锟斤拷锟缴癸拷 !");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -114,29 +118,29 @@ public class GenerateCode {
 	}
 	
 	public static void genModel(String tableName){
-		// step1 ����freeMarker����ʵ��
+		// step1 锟斤拷锟斤拷freeMarker锟斤拷锟斤拷实锟斤拷
         Configuration configuration = new Configuration();
         Writer out = null;
         try {
-            // step2 ��ȡģ��·��
+            // step2 锟斤拷取模锟斤拷路锟斤拷
             configuration.setDirectoryForTemplateLoading(new File(TEMPLATE_CONTROLLER_PATH));
-            // step3 ��������ģ��
+            // step3 锟斤拷锟斤拷锟斤拷锟斤拷模锟斤拷
             Map<String, Object> dataMap = new HashMap<String, Object>();
             String className = getUpper(tableName)+"Model";
             dataMap.put("classPath",MODEL_PACKAGE_PATH);
             dataMap.put("className", className);
             dataMap.put("tableName", tableName);
-            // step4 ����ģ���ļ�
+            // step4 锟斤拷锟斤拷模锟斤拷锟侥硷拷
             Template template = configuration.getTemplate("ModelTemplate.ftl");
-            // step5 ��������
+            // step5 锟斤拷锟斤拷锟斤拷锟斤拷
             File docFile = new File(MODEL_CLASS_PATH + "\\" + className+".java");
             out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(docFile)));
-            // step6 ����ļ�
+            // step6 锟斤拷锟斤拷募锟�
             template.process(dataMap, out);
             ;
 
             System.out.println("arp.addMapping(\""+tableName+"\", "+className+".class);");
-            //System.out.println("----------------->"+className+".java �ļ������ɹ� !");
+            //System.out.println("----------------->"+className+".java 锟侥硷拷锟斤拷锟斤拷锟缴癸拷 !");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

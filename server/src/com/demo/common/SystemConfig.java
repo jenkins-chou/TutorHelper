@@ -41,6 +41,7 @@ import com.demo.controller.ScholarshipApplyRecordController;
 import com.demo.controller.ScholarshipController;
 import com.demo.controller.ScholarshipDistributionController;
 import com.demo.controller.ScientSubjectController;
+import com.demo.controller.StatisticsController;
 import com.demo.controller.UploadController;
 import com.demo.models.AttendanceModel;
 import com.demo.models.AttendanceRecordModel;
@@ -131,7 +132,7 @@ public class SystemConfig extends JFinalConfig {
 	public void configRoute(Routes me) {
 		me.add("/", IndexController.class);	
 		me.add("/upload", UploadController.class);
-		
+		me.add("statistics",StatisticsController.class);
 		
 		me.add("attendance",AttendanceController.class);
 		me.add("attendance_record",AttendanceRecordController.class);

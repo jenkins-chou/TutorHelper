@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50728
 File Encoding         : 65001
 
-Date: 2019-12-08 23:48:55
+Date: 2019-12-14 21:53:57
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -127,7 +127,7 @@ CREATE TABLE `base_college` (
 -- Records of base_college
 -- ----------------------------
 INSERT INTO `base_college` VALUES ('1', null, null, null, null, null, null, '1572970487', null, 'delete');
-INSERT INTO `base_college` VALUES ('2', '11', '计算机学院', null, null, null, null, '1573144426', null, 'normal');
+INSERT INTO `base_college` VALUES ('2', '11', '计算机学院', null, null, null, null, '1573144426', null, 'delete');
 
 -- ----------------------------
 -- Table structure for base_commodity
@@ -261,7 +261,7 @@ CREATE TABLE `base_menu` (
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   `del` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of base_menu
@@ -316,7 +316,7 @@ INSERT INTO `base_menu` VALUES ('78', '科研项目管理', '2', '59', null, '..
 INSERT INTO `base_menu` VALUES ('79', '成绩查询', '2', '33', null, '../pages/student/base_score/list.html', '1', null, '1', null, null, 'normal');
 INSERT INTO `base_menu` VALUES ('80', '课程查询', '2', '33', null, '../pages/student/base_course/list.html', '1', null, '1', null, null, 'normal');
 INSERT INTO `base_menu` VALUES ('81', '题目列表', '2', '34', null, '../pages/student/psy_test/list.html', '1', null, '1', null, null, 'normal');
-INSERT INTO `base_menu` VALUES ('82', '我的测试', '2', '34', null, null, '1', null, '1', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('82', '我的测试', '2', '34', null, '../pages/student/psy_test/user_test.html', '1', null, '1', null, null, 'normal');
 INSERT INTO `base_menu` VALUES ('83', '项目列表', '2', '35', null, '../pages/student/scient_subject/list.html', '1', null, '1', null, null, 'normal');
 INSERT INTO `base_menu` VALUES ('84', '热门推荐', '2', '36', null, '../pages/student/new/list.html', '1', null, '1', null, null, 'normal');
 INSERT INTO `base_menu` VALUES ('85', '我的考勤', '2', '37', null, '../pages/student/attendance_record/list.html', '1', null, '1', null, null, 'normal');
@@ -335,6 +335,8 @@ INSERT INTO `base_menu` VALUES ('97', '科研项目发布', '2', '93', null, '..
 INSERT INTO `base_menu` VALUES ('99', '学习资讯发布', '2', '94', null, '../pages/teacher/base_new/list.html', '1', null, '2', null, null, 'normal');
 INSERT INTO `base_menu` VALUES ('101', '学生管理', '2', '96', null, '../pages/teacher/base_user/list.html', '1', null, '2', null, null, 'normal');
 INSERT INTO `base_menu` VALUES ('102', '考研信息发布', '2', '95', null, '../pages/teacher/postgraduate_exam/list.html', '1', null, '2', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('103', '数据统计', '1', '1', null, null, '1', null, '4', null, null, 'normal');
+INSERT INTO `base_menu` VALUES ('104', '数据统计', '2', '103', null, '../pages/manager/statistics/index.html', '1', null, '4', null, null, 'normal');
 
 -- ----------------------------
 -- Table structure for base_message
@@ -398,12 +400,13 @@ CREATE TABLE `base_new` (
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   `del` varchar(255) DEFAULT NULL COMMENT '删除状态',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of base_new
 -- ----------------------------
 INSERT INTO `base_new` VALUES ('1', null, null, null, null, null, null, '1573401566', null, 'delete');
+INSERT INTO `base_new` VALUES ('2', '标题大撒旦撒', '简要', '介绍', '正文', '图片', 'http://baidu.com', '1576078118', null, 'normal');
 
 -- ----------------------------
 -- Table structure for base_school
@@ -694,12 +697,14 @@ CREATE TABLE `psy_test_answer_record` (
   `remark` varchar(255) DEFAULT NULL,
   `del` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of psy_test_answer_record
 -- ----------------------------
 INSERT INTO `psy_test_answer_record` VALUES ('7', '9', '1', '[{\"item_id\":1,\"answer_id\":\"4\"}]', null, null, '1575819960', null, 'normal');
+INSERT INTO `psy_test_answer_record` VALUES ('8', '9', '1', '[{\"item_id\":1,\"answer_id\":\"3\"}]', 'complete', null, '1575906390', null, 'delete');
+INSERT INTO `psy_test_answer_record` VALUES ('9', '9', '1', '[{\"item_id\":1,\"answer_id\":\"3\"}]', 'complete', null, '1576077545', null, 'normal');
 
 -- ----------------------------
 -- Table structure for psy_test_item
