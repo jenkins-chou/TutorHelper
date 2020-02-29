@@ -142,7 +142,7 @@ public class BaseUserTypeController  extends Controller {
 	
 	@CrossOrigin
 	public void search(){
-		String map = "school_name";
+		String map = "type";
 		String key = getPara("key");
 		System.out.println(key);
 		List<BaseSchoolModel> models = BaseSchoolModel.dao.find("select * from "+DB_TABLE+" where "+map+" like '%"+key+"%' and del != 'delete'");

@@ -84,6 +84,10 @@
 <script type="text/javascript" src="/pages/base/base.js"></script>
 <script type="text/javascript" src="/dist/toastr/toastr.js"></script>
 
+<script src="/plugins/input-mask/jquery.inputmask.js"></script>
+<script src="/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+
 <script type="text/javascript">
   //业务URI
   var ROOT_URI = URI_BASE_CLASS;
@@ -213,7 +217,8 @@
     for (var i = 0; i < data.column_name.length; i++) {
       //column_name[i]
       if (data.column_filter[i] == 'normal') {
-        var html = "<div class='form-group'>" +
+        if (data.column_name[i] == 'class_stu_num') {
+          var html = "<div class='form-group'>" +
                   "<label for='exampleInputEmail1'>" +
                     "<font style='vertical-align: inherit;'>" +
                       "<font style='vertical-align: inherit;'>" +
@@ -221,12 +226,39 @@
                     "</font>"+
                   "</font>"+
                 "</label>"+
-                "<input id='"+data.column_name[i]+"' type='email' class='form-control' id='exampleInputEmail1' placeholder='请输入'>"+
+                "<input id='"+data.column_name[i]+"' type='number' class='form-control' placeholder='请输入'>"+
                 "</div>";
-        $("#form-body").append(html);
+          $("#form-body").append(html);
+        } else if(data.column_name[i] == 'class_regis_time'){
+          var html = "<div class='form-group'>" +
+                  "<label for='exampleInputEmail1'>" +
+                    "<font style='vertical-align: inherit;'>" +
+                      "<font style='vertical-align: inherit;'>" +
+                      data.column_comment[i] +
+                    "</font>"+
+                  "</font>"+
+                "</label>"+
+                "<input id='"+data.column_name[i]+"' type='text' class='form-control' data-inputmask='\"alias\": \"dd/mm/yyyy\"' placeholder='请输入'>"+
+                "</div>";
+          $("#form-body").append(html);
+        }else{
+          var html = "<div class='form-group'>" +
+                  "<label for='exampleInputEmail1'>" +
+                    "<font style='vertical-align: inherit;'>" +
+                      "<font style='vertical-align: inherit;'>" +
+                      data.column_comment[i] +
+                    "</font>"+
+                  "</font>"+
+                "</label>"+
+                "<input id='"+data.column_name[i]+"' type='email' class='form-control' placeholder='请输入'>"+
+                "</div>";
+          $("#form-body").append(html);
+        }
       }
 
     }
+
+    $('#class_regis_time').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
   }
 
   var getModifyInfo = function(id){
@@ -336,6 +368,8 @@
   var goBack = function(){
     javascript:history.back(-1)
   }
+
+
 </script>
 </body>
 </html>

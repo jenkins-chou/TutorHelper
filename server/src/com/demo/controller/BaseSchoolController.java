@@ -8,10 +8,12 @@ import java.util.Map;
 
 import com.alibaba.fastjson.JSONObject;
 import com.demo.models.BaseSchoolModel;
+import com.demo.utils.CheckUtils;
 import com.demo.utils.Const;
 import com.demo.utils.CrossOrigin;
 import com.jfinal.core.Controller;
 import com.jfinal.kit.JsonKit;
+import com.jfinal.upload.UploadFile;
 import com.demo.utils.DatabaseUtil;
 
 @CrossOrigin
@@ -24,6 +26,7 @@ public class BaseSchoolController  extends Controller {
 	static{
 		tableFilter.put("id","hidden");
 		tableFilter.put("create_time","hidden");
+		tableFilter.put("school_logo","custom");
 		tableFilter.put("del","hidden");
 	}
 	
@@ -67,15 +70,25 @@ public class BaseSchoolController  extends Controller {
 	
 	@CrossOrigin
 	public void add(){
+		UploadFile f = getFile("school_logo");
+		
 		JSONObject js = new JSONObject();
 		try{
-			BaseSchoolModel model = getModel(BaseSchoolModel.class, "", true);
-			model.set(Const.KEY_DB_CREATE_TIME, System.currentTimeMillis()/1000+"");
-			model.set(Const.KEY_DB_DEL, Const.OPTION_DB_NORMAL);
-			System.out.println("model:"+model);
-			model.save();
-			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);
-			renderJson(JsonKit.toJson(js));
+			List<BaseSchoolModel> preList = BaseSchoolModel.dao.find("select * from "+DB_TABLE + " where school_name = '"+getPara("school_name")+"'");
+			if(CheckUtils.checkArrayIsNotNull(preList)){
+				js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_201);
+				js.put(Const.KEY_RES_MESSAGE, "存在相同名称");
+				renderJson(JsonKit.toJson(js));
+			}else{
+				BaseSchoolModel model = getModel(BaseSchoolModel.class, "", true);
+				model.set(Const.KEY_DB_CREATE_TIME, System.currentTimeMillis()/1000+"");
+				model.set(Const.KEY_DB_DEL, Const.OPTION_DB_NORMAL);
+				model.set("school_logo", "upload/"+f.getFileName());
+				System.out.println("model:"+model);
+				model.save();
+				js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);
+				renderJson(JsonKit.toJson(js));
+			}
 		}catch(Exception e){
 			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_201);
 			renderJson(JsonKit.toJson(js));
@@ -84,9 +97,16 @@ public class BaseSchoolController  extends Controller {
 	
 	@CrossOrigin
 	public void update(){
+		UploadFile f = getFile("school_logo");
+		//System.out.println("upload/"+f.getFileName());
+		System.out.println(getPara("id"));
 		JSONObject js = new JSONObject();
 		try{
 			BaseSchoolModel model = getModel(BaseSchoolModel.class, "", true);
+			if(f !=null){
+				model.set("school_logo", "upload/"+f.getFileName());
+			}
+			model.set("id", getPara("id"));
 			System.out.println("model:"+model);
 			model.update();
 			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);

@@ -143,7 +143,7 @@ public class EarlyReadingController  extends Controller {
 	
 	@CrossOrigin
 	public void search(){
-		String map = "";
+		String map = "reading_name";
 		String key = getPara("key");
 		List<EarlyReadingModel> models = EarlyReadingModel.dao.find("select * from "+DB_TABLE+" where "+map+" like '%"+key+"%' and del != 'delete'");
 		JSONObject js = new JSONObject();

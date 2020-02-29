@@ -143,7 +143,7 @@ public class BaseNewController  extends Controller {
 	
 	@CrossOrigin
 	public void search(){
-		String map = "";
+		String map = "title";
 		String key = getPara("key");
 		List<BaseNewModel> models = BaseNewModel.dao.find("select * from "+DB_TABLE+" where "+map+" like '%"+key+"%' and del != 'delete'");
 		JSONObject js = new JSONObject();

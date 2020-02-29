@@ -144,7 +144,7 @@ public class BaseStateController  extends Controller {
 	
 	@CrossOrigin
 	public void search(){
-		String map = "";
+		String map = "state";
 		String key = getPara("key");
 		List<BaseStateModel> models = BaseStateModel.dao.find("select * from "+DB_TABLE+" where "+map+" like '%"+key+"%' and del != 'delete'");
 		JSONObject js = new JSONObject();

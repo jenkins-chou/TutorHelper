@@ -143,7 +143,7 @@ public class BaseEnterpriseTypeController  extends Controller {
 	
 	@CrossOrigin
 	public void search(){
-		String map = "";
+		String map = "type";
 		String key = getPara("key");
 		List<BaseEnterpriseTypeModel> models = BaseEnterpriseTypeModel.dao.find("select * from "+DB_TABLE+" where "+map+" like '%"+key+"%' and del != 'delete'");
 		JSONObject js = new JSONObject();

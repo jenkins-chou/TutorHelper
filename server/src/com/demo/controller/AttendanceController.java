@@ -143,7 +143,7 @@ public class AttendanceController  extends Controller {
 	
 	@CrossOrigin
 	public void search(){
-		String map = "";
+		String map = "attendance_name";
 		String key = getPara("key");
 		List<AttendanceModel> models = AttendanceModel.dao.find("select * from "+DB_TABLE+" where "+map+" like '%"+key+"%' and del != 'delete'");
 		JSONObject js = new JSONObject();

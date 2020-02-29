@@ -180,9 +180,13 @@
       var listHtml = "<tr style='height:40px'><td>"+index+"</td>";
       for (var i = 0; i < tableInfo.column_name.length; i++) {
         if (tableInfo.column_filter[i] != 'hidden') {
-          listHtml += "<td>"+item[tableInfo.column_name[i]]+"</td>";
+          if (tableInfo.column_name[i] == 'school_logo') {
+            listHtml += "<td><img style='width:40px;height:40px' src='"+server_url+"/"+item[tableInfo.column_name[i]]+"'/></td>";
+          } else{
+             listHtml += "<td>"+item[tableInfo.column_name[i]]+"</td>";
+          }
+         
         }
-
       }
         listHtml +="<td><a href='#' onclick='modify("+item.id+")'><span class='label label-primary'><font style='vertical-align: inherit;'><font style='vertical-align: inherit;'>修改</font></font></span></a>"+
         "<a href='#' onclick='deleteObject(this,"+item.id+")' style='margin-left:10px'><span class='label label-danger'><font style='vertical-align: inherit;'><font style='vertical-align: inherit;'>删除</font></font></span></a></td></tr>";

@@ -144,7 +144,7 @@ public class PsyTestItemController  extends Controller {
 	
 	@CrossOrigin
 	public void search(){
-		String map = "";
+		String map = "item_option";
 		String key = getPara("key");
 		List<PsyTestItemModel> models = PsyTestItemModel.dao.find("select * from "+DB_TABLE+" where "+map+" like '%"+key+"%' and del != 'delete'");
 		JSONObject js = new JSONObject();

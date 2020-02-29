@@ -47,7 +47,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form">
+            <form id="form" role="form" enctype="multipart/form-data" method="post">
               <div id="form-body" class="box-body">
 
               </div>
@@ -172,11 +172,21 @@
                 "</div>";
         $("#form-body").append(html);
       }
-
     }
+
+
+
+      //新增字段
+      var loglHtml = '<div class="form-group">'+
+                  '<label for="exampleInputFile">学校Logo</label>'+
+                  '<input type="file" id="school_logo" name="school_logo" >'+
+                  '<p class="help-block">Example block-level help text here.</p>'+
+                '</div>';
+      $("#form-body").append(loglHtml);
   }
 
   var getModifyInfo = function(id){
+
     $.ajax({
       type: "post",
       dataType: "json",
@@ -206,7 +216,7 @@
       console.log(tableInfo.column_filter[i]);
       console.log(tableInfo.column_name[i]);
       console.log(data[tableInfo.column_name[i]]);
-      if (tableInfo.column_filter[i] == 'normal') {
+      if (tableInfo.column_filter[i] == 'normal' || tableInfo.column_filter[i] == 'custom') {
         $('#'+tableInfo.column_name[i]).val(data[tableInfo.column_name[i]]);
       }
 
@@ -215,16 +225,25 @@
   }
 
   var add = function(){
+    
+
     $.ajax({
       type: "post",
       dataType: "json",
       url: addUrl,
       data: getInput(),
+      async: false,
+      processData: false,
+      contentType: false,
       success: function (data) {       //data回调信息
-      if (data != "" && data.code == 200) {
-        //stopLoading();
-        toastr.success("操作成功","温馨提示");
-        goBack();
+      if (data != "") {
+        if (data.code == 200) {
+          toastr.success("操作成功","温馨提示");
+          goBack();
+        }else{
+          toastr.success("温馨提示",data.message);
+        }
+        
       }else{
         toastr.error("操作失败","温馨提示");
       }
@@ -237,14 +256,14 @@
   }
 
   var update = function(){
-    var id = getQueryVariable("id");
-    var params = getInput();
-    params.id = id;
     $.ajax({
       type: "post",
       dataType: "json",
       url: updateUrl,
-      data:params ,
+      data: getInput() ,
+      async: false,
+      processData: false,
+      contentType: false,
       success: function (data) {       //data回调信息
       if (data != "" && data.code == 200) {
         //stopLoading();
@@ -266,10 +285,19 @@
     if (tableInfo == null) {
       return {};
     }
+    var myform = new FormData();
     for (var i = 0; i < tableInfo.column_name.length; i++) {
-      input[tableInfo.column_name[i]] = $('#'+tableInfo.column_name[i]).val();
+       myform.append(tableInfo.column_name[i], $('#'+tableInfo.column_name[i]).val()+'');
     }
-    return input;
+    myform.append('school_logo', $("#school_logo")[0].files[0]);
+    var id = getQueryVariable("id");
+    if (id != null || id != undefined || id != '') {
+      console.log(id);
+      myform.append('id', id+'');
+    }
+    console.log("getInput:");
+    console.log(myform);
+    return myform;
   }
 
   var submit = function(){

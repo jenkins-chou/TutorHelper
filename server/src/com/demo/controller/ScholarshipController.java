@@ -143,7 +143,7 @@ public class ScholarshipController  extends Controller {
 	
 	@CrossOrigin
 	public void search(){
-		String map = "";
+		String map = "scholarship_name";
 		String key = getPara("key");
 		List<ScholarshipModel> models = ScholarshipModel.dao.find("select * from "+DB_TABLE+" where "+map+" like '%"+key+"%' and del != 'delete'");
 		JSONObject js = new JSONObject();

@@ -144,7 +144,7 @@ public class BaseCollegeController  extends Controller {
 	
 	@CrossOrigin
 	public void search(){
-		String map = "";
+		String map = "college_name";
 		String key = getPara("key");
 		List<BaseCollegeModel> models = BaseCollegeModel.dao.find("select * from "+DB_TABLE+" where "+map+" like '%"+key+"%' and del != 'delete'");
 		JSONObject js = new JSONObject();

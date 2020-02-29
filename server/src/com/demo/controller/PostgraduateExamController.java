@@ -143,7 +143,7 @@ public class PostgraduateExamController  extends Controller {
 	
 	@CrossOrigin
 	public void search(){
-		String map = "";
+		String map = "exam_name";
 		String key = getPara("key");
 		List<PostgraduateExamModel> models = PostgraduateExamModel.dao.find("select * from "+DB_TABLE+" where "+map+" like '%"+key+"%' and del != 'delete'");
 		JSONObject js = new JSONObject();

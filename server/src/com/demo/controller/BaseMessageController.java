@@ -143,7 +143,7 @@ public class BaseMessageController  extends Controller {
 	
 	@CrossOrigin
 	public void search(){
-		String map = "";
+		String map = "message";
 		String key = getPara("key");
 		List<BaseMessageModel> models = BaseMessageModel.dao.find("select * from "+DB_TABLE+" where "+map+" like '%"+key+"%' and del != 'delete'");
 		JSONObject js = new JSONObject();

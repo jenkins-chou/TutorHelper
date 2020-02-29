@@ -143,7 +143,7 @@ public class BaseCertController  extends Controller {
 	
 	@CrossOrigin
 	public void search(){
-		String map = "";
+		String map = "cert_name";
 		String key = getPara("key");
 		List<BaseCertModel> models = BaseCertModel.dao.find("select * from "+DB_TABLE+" where "+map+" like '%"+key+"%' and del != 'delete'");
 		JSONObject js = new JSONObject();
