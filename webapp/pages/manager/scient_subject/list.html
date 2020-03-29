@@ -180,7 +180,11 @@
       var listHtml = "<tr style='height:40px'><td>"+index+"</td>";
       for (var i = 0; i < tableInfo.column_name.length; i++) {
         if (tableInfo.column_filter[i] != 'hidden') {
-          listHtml += "<td>"+item[tableInfo.column_name[i]]+"</td>";
+          if (tableInfo.column_name[i] == 'scient_subject_img') {
+            listHtml += "<td><img style='width:40px;height:40px' src='"+server_url+"/"+item[tableInfo.column_name[i]]+"'/></td>";
+          } else{
+             listHtml += "<td>"+item[tableInfo.column_name[i]]+"</td>";
+          }
         }
 
       }

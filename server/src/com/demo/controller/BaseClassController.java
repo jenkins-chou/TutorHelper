@@ -37,7 +37,7 @@ public class BaseClassController  extends Controller {
 	
 	@CrossOrigin
 	public void getAll(){
-		List<BaseClassModel> models = BaseClassModel.dao.find("select * from "+DB_TABLE+" where del != 'delete'");
+		List<BaseClassModel> models = BaseClassModel.dao.find("select a.*,b.school_name as school_id, c.college_name as college_id from "+DB_TABLE+" a,base_school b,base_college c where a.school_id = b.id and a.college_id = c.id and a.del != 'delete' and b.del != 'delete' and c.del != 'delete'");
 		JSONObject js = new JSONObject();
 		if(models!=null&&models.size()>=1){
 			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);

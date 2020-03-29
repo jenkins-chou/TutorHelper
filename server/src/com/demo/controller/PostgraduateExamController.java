@@ -7,11 +7,13 @@ import java.util.List;
 import java.util.Map;
 
 import com.alibaba.fastjson.JSONObject;
+import com.demo.models.BaseNewModel;
 import com.demo.models.PostgraduateExamModel;
 import com.demo.utils.Const;
 import com.demo.utils.CrossOrigin;
 import com.jfinal.core.Controller;
 import com.jfinal.kit.JsonKit;
+import com.jfinal.upload.UploadFile;
 import com.demo.utils.DatabaseUtil;
 
 @CrossOrigin
@@ -24,6 +26,7 @@ public class PostgraduateExamController  extends Controller {
 	static{
 		tableFilter.put("id","hidden");
 		tableFilter.put("create_time","hidden");
+		tableFilter.put("exam_img","custom");
 		tableFilter.put("del","hidden");
 	}
 	
@@ -67,11 +70,15 @@ public class PostgraduateExamController  extends Controller {
 	
 	@CrossOrigin
 	public void add(){
+		
+		UploadFile f = getFile("exam_img");
+		
 		JSONObject js = new JSONObject();
 		try{
 			PostgraduateExamModel model = getModel(PostgraduateExamModel.class, "", true);
 			model.set(Const.KEY_DB_CREATE_TIME, System.currentTimeMillis()/1000+"");
 			model.set(Const.KEY_DB_DEL, Const.OPTION_DB_NORMAL);
+			model.set("exam_img", "upload/"+f.getFileName());
 			System.out.println("model:"+model);
 			model.save();
 			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);
@@ -80,13 +87,22 @@ public class PostgraduateExamController  extends Controller {
 			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_201);
 			renderJson(JsonKit.toJson(js));
 		}
+		
 	}
 	
 	@CrossOrigin
 	public void update(){
+		
+		UploadFile f = getFile("exam_img");
+		//System.out.println("upload/"+f.getFileName());
+		System.out.println(getPara("id"));
 		JSONObject js = new JSONObject();
 		try{
 			PostgraduateExamModel model = getModel(PostgraduateExamModel.class, "", true);
+			if(f !=null){
+				model.set("exam_img", "upload/"+f.getFileName());
+			}
+			model.set("id", getPara("id"));
 			System.out.println("model:"+model);
 			model.update();
 			js.put(Const.KEY_RES_CODE, Const.KEY_RES_CODE_200);

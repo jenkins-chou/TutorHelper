@@ -174,6 +174,25 @@
       }
 
     }
+
+          //新增字段
+      var loglHtml = '<div class="form-group">'+
+                  '<label for="exampleInputFile">图片</label>'+
+                  '<input type="file" id="img" name="img" >'+
+                  '<p class="help-block">Example block-level help text here.</p>'+
+                '</div>';
+      $("#form-body").append(loglHtml);
+
+      var contenthtml = "<div class='form-group'>" +
+                  "<label for='exampleInputEmail1'>" +
+                    "<font style='vertical-align: inherit;'>" +
+                      "<font style='vertical-align: inherit;'>正文</font>"+
+                  "</font>"+
+                "</label>"+
+                "<textarea id='content' type='email' class='form-control' id='content' placeholder='请输入'></textarea>"+
+                "</div>";
+        $("#form-body").append(contenthtml);
+
   }
 
   var getModifyInfo = function(id){
@@ -220,6 +239,9 @@
       dataType: "json",
       url: addUrl,
       data: getInput(),
+      async: false,
+      processData: false,
+      contentType: false,
       success: function (data) {       //data回调信息
       if (data != "" && data.code == 200) {
         //stopLoading();
@@ -237,14 +259,14 @@
   }
 
   var update = function(){
-    var id = getQueryVariable("id");
-    var params = getInput();
-    params.id = id;
     $.ajax({
       type: "post",
       dataType: "json",
       url: updateUrl,
-      data:params ,
+      data:getInput() ,
+      async: false,
+      processData: false,
+      contentType: false,
       success: function (data) {       //data回调信息
       if (data != "" && data.code == 200) {
         //stopLoading();
@@ -266,10 +288,20 @@
     if (tableInfo == null) {
       return {};
     }
+    var myform = new FormData();
     for (var i = 0; i < tableInfo.column_name.length; i++) {
-      input[tableInfo.column_name[i]] = $('#'+tableInfo.column_name[i]).val();
+       myform.append(tableInfo.column_name[i], $('#'+tableInfo.column_name[i]).val()+'');
     }
-    return input;
+    myform.append('img', $("#img")[0].files[0]);
+    var id = getQueryVariable("id");
+    if (id != null || id != undefined || id != '') {
+      console.log(id);
+      myform.append('id', id+'');
+    }
+     myform.append('content',$("#content").html());
+    console.log("getInput:");
+    console.log(myform);
+    return myform;
   }
 
   var submit = function(){
